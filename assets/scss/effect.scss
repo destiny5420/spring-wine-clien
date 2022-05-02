@@ -1,0 +1,23 @@
+.hover-no-visible {
+  &:hover {
+    opacity: 0;
+  }
+}
+
+.hover-pressed {
+  &:hover {
+    transform: scale(0.9);
+  }
+}
+
+.hover-opacity-half {
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.hover-scale-1\.05 {
+  &:hover {
+    transform: scale(1.1);
+  }
+}

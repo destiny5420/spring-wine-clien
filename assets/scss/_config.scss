@@ -1,0 +1,33 @@
+@use 'sass:math';
+
+$breakpoints: (
+  mm: 320px,
+  m: 375px,
+  sm: 640px,
+  md: 768px,
+  lg: 1044px,
+  xl: 1280px,
+  xxl: 1440px,
+);
+
+$c-grayscale-000: #000;
+$c-grayscale-fff: #fff;
+$c-grayscale-363: #363636;
+$c-grayscale-ddd: #ddd;
+$c-yellow-f6d: #f6d851;
+$c-green-18a: #18a29a;
+$c-green-129: #129066;
+$c-green-53a: #53a4af;
+$c-blue-1aa: #1aa3d9;
+$c-blue-207: #207da3;
+$c-blue-93d: #93d1db;
+$c-orange-f29: #f29625;
+
+$d-size: 1440;
+$m-size: 375;
+
+$z-loading: 500;
+$z-popup: 450;
+$z-language-mobile: 390;
+$z-menu-mobile: 400;
+$z-footer: 100;

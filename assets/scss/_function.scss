@@ -1,0 +1,56 @@
+@import '~assets/scss/_config';
+
+/**
+ * 字體大小單位轉換
+ */
+@function px2vw($px, $design-w: $d-size) {
+  @return math.div($px, $design-w) * 100 * 1vw;
+}
+
+@function px2vh($px, $design-h: $d-size) {
+  @return math.div($px, $design-h) * 100 * 1vh;
+}
+
+@function vw2px($vw, $design-w: $d-size) {
+  @return $vw * math.div($design-w, 100) * 1px;
+}
+
+@function vh2px($vw, $design-h: $design-mw-mob) {
+  @return $vw * math.div($design-w, 100) * 1px;
+}
+
+@function pt2px($pt) {
+  @return math.div($pt * 4, 3);
+}
+
+/**
+ * 百分比轉換
+ */
+@function percent($child, $parent) {
+  @return math.div($child, $parent) * 100%;
+}
+
+@mixin aspect-ratio($w, $h) {
+  padding-bottom: math.div($h, $w) * 100%;
+}
+
+@mixin flex($jus: center, $item: center, $dir: row) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $jus;
+  align-items: $item;
+}
+
+@mixin size($w: 100%, $h: $w) {
+  width: $w;
+  height: $h;
+}
+
+@mixin image-inner($w, $h: $w) {
+  &::after {
+    @include aspect-ratio($w, $h);
+
+    content: '';
+    display: block;
+  }
+}

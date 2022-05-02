@@ -10,7 +10,7 @@
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:prettier",
     "lintfix": "prettier --write --list-different .",
-    "deploy": "aws s3 sync ./dist s3://spring-wine.stackergames.org --delete"
+    "deploy": "aws s3 sync ./dist s3://spring-wine.stackergames.org --delete --profile paper-hsiao"
   },
   "dependencies": {
     "@nuxtjs/google-fonts": "^1.3.0",

@@ -2,7 +2,6 @@
   <div>
     <img ref="imgShow" class="showImg" :src="imgOrigin">
     <img ref="imgMap" class="mapImg" :src="imgMap">
-    <div ref="testColorDiv" class="testColor"></div>
     <canvas ref="canvasShow" class="c-canvasShow"></canvas>
     <canvas ref="canvasMap" class="c-canvasMap"></canvas>
   </div>
@@ -13,14 +12,19 @@ import Vec2 from './js/Vec2'
 
 export default {
   props: {
+    // 圖片縮放
     picScale: {
       type: Number,
       default: 1
     },
+
+    // 顯示圖
     imgOrigin: {
       type: String,
       required: true
     },
+
+    // 映射圖
     imgMap: {
       type: String,
       required: true
@@ -199,11 +203,11 @@ export default {
 
 
     initGetPixel() {
-      window.addEventListener('mousemove', this.getPixel)
+      window.addEventListener('mousedown', this.getPixel)
     },
     getPixel(ev) {
       const data = this.ctxMapCanvas.getImageData(ev.x, ev.y, 1, 1).data
-      this.$refs.testColorDiv.style.backgroundColor = `rgb(${data[0]}, ${ data[1] }, ${ data[2] })`
+      this.$emit('update:click-color', data)
     }
   }
 }

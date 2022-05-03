@@ -132,22 +132,34 @@ export default {
     initDrag() {
       this.vec2DragMousePos.set(0, 0);
 
-      window.addEventListener('mouseup',   this.dragMouseUp)
-      window.addEventListener('mousemove', this.dragMouseMove)
       window.addEventListener('mousedown', this.dragMouseDown)
+      window.addEventListener('mousemove', this.dragMouseMove)
+      window.addEventListener('mouseup',   this.dragMouseUp)
+
+
+
+      window.addEventListener('touchstart',   (ev) => this.dragMouseDown(ev.touches[0]))
+      window.addEventListener('touchmove', ev => this.dragMouseMove(ev.touches[0]))
+      window.addEventListener('touchend', ev => this.dragMouseUp(ev.touches[0]))
+
 
     },
 
     dragMouseDown(ev) {
-      this.vec2DragMousePos.set(ev.x, ev.y)
+      const x = ev.x || ev.clientX
+      const y = ev.y || ev.clientY
+      this.vec2DragMousePos.set(x, y)
       this.boolDragLock = false
     },
     dragMouseMove(ev) {
-      if (this.boolDragLock) return false;
+      if (this.boolDragLock || !ev) return false;
+
+      const x = ev.x || ev.clientX
+      const y = ev.y || ev.clientY
 
       const numFreeWidth = this.numFreeWidth
       const numFreeHeight = this.numFreeHeight
-      const vec2MouseMove = this.vec2DragMousePos.sub({ x: ev.x, y: ev.y })
+      const vec2MouseMove = this.vec2DragMousePos.sub({ x, y })
       const vec2Offset = this.vec2ScreenOffset.sub(vec2MouseMove)
 
       // fix x
@@ -165,7 +177,7 @@ export default {
       }
 
       this.vec2ScreenOffset.set(vec2Offset.x, vec2Offset.y)
-      this.vec2DragMousePos.set(ev.x, ev.y)
+      this.vec2DragMousePos.set(x, y)
     },
     dragMouseUp() {
       this.boolDragLock = true

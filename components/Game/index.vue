@@ -123,7 +123,10 @@ export default {
       this.numFreeWidth = this.numDisplayWidth - numWindowWidth
       this.numFreeHeight = numWindowHeight - this.numDisplayHeight
 
-      this.vec2ScreenOffset.set(0, 0)
+      this.vec2ScreenOffset.set(
+        this.numWindowWidth / 2 - this.numDisplayWidth / 2,
+        this.numWindowHeight / 2 - this.numDisplayHeight / 2
+      )
     },
 
     initDrag() {

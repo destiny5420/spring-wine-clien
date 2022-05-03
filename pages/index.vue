@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'IndexPage',
   data() {
@@ -32,6 +34,15 @@ export default {
       this.$refs.testColorDiv.style.backgroundColor = color
 
     }
+  },
+  mounted() {
+    this.updateWindowWidth()
+    window.addEventListener('resize', this.updateWindowWidth)
+  },
+  methods: {
+    ...mapMutations({
+      updateWindowWidth: 'windowInfo/UPDATE_WIDTH'
+    })
   }
 }
 </script>

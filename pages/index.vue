@@ -4,6 +4,7 @@
       :img-origin="game.imgOrigin"
       :img-map="game.imgMap"
       :pic-scale="game.picScale"
+      :bg-color="game.bgColor"
       :click-color.sync="game.clickColor"/>
     <div ref="testColorDiv" class="testColor"></div>
   </div>
@@ -19,7 +20,8 @@ export default {
         imgOrigin: require('./imgs/img.png'),
         imgMap: require('./imgs/img2.png'),
         picScale: 1.3,
-        clickColor: null
+        clickColor: null,
+        bgColor: 'skyblue'
       }
     }
   },

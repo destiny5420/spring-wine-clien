@@ -29,6 +29,11 @@ export default {
       type: String,
       required: true
     },
+
+    bgColor: {
+      type: String,
+      default: ''
+    }
   },
   data() {
     return {
@@ -178,7 +183,7 @@ export default {
       const numDisplayHeight = this.numDisplayHeight
 
 
-      this.ctxShowCanvas.fillStyle = 'blue'
+      this.ctxShowCanvas.fillStyle = this.bgColor
       this.ctxShowCanvas.fillRect(0, 0, numWindowWidth, numWindowHeight)
       this.ctxMapCanvas.clearRect(0, 0, numWindowWidth, numWindowHeight)
 

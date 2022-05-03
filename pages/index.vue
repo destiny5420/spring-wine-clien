@@ -1,21 +1,26 @@
 <template>
   <div>
+    <SocketConnect />
     <Game
       :img-origin="game.imgOrigin"
       :img-map="game.imgMap"
       :pic-scale="game.picScale"
       :bg-color="game.bgColor"
-      :click-color.sync="game.clickColor"/>
+      :click-color.sync="game.clickColor"
+    />
     <div ref="testColorDiv" class="testColor"></div>
   </div>
-
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
+import SocketConnect from '~/components/SocketConnect/index.vue'
 
 export default {
   name: 'IndexPage',
+  components: {
+    SocketConnect,
+  },
   data() {
     return {
       game: {
@@ -23,17 +28,18 @@ export default {
         imgMap: require('./imgs/img2.png'),
         picScale: 1.3,
         clickColor: null,
-        bgColor: 'skyblue'
-      }
+        bgColor: 'skyblue',
+      },
     }
   },
   watch: {
     'game.clickColor'() {
       const clickColor = this.game.clickColor
-      const color = clickColor ? `rgb(${clickColor[0]}, ${ clickColor[1] }, ${ clickColor[2] })` : '';
+      const color = clickColor
+        ? `rgb(${clickColor[0]}, ${clickColor[1]}, ${clickColor[2]})`
+        : ''
       this.$refs.testColorDiv.style.backgroundColor = color
-
-    }
+    },
   },
   mounted() {
     this.updateWindowWidth()
@@ -41,9 +47,9 @@ export default {
   },
   methods: {
     ...mapMutations({
-      updateWindowWidth: 'windowInfo/UPDATE_WIDTH'
-    })
-  }
+      updateWindowWidth: 'windowInfo/UPDATE_WIDTH',
+    }),
+  },
 }
 </script>
 <style lang="scss" scoped>
@@ -56,5 +62,4 @@ export default {
   height: 100px;
   background-color: #f00;
 }
-
 </style>

@@ -19,6 +19,7 @@ module.exports = {
     'no-new': 'off',
     'import/no-absolute-path': 'off',
     'vue/no-v-html': 'off',
-    'import/no-named-as-default': 'off'
+    'import/no-named-as-default': 'off',
+    'vue/valid-template-root': 'off',
   },
 }

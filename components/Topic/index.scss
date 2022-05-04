@@ -1,0 +1,29 @@
+.c-topic {
+  .c-topic__wrap {
+    background-color: rgba($color: $c-grayscale-363, $alpha: 80%);
+    border-radius: 50%;
+
+    .c-inner {
+      @include image-inner(100, 100);
+
+      width: 100px;
+    }
+
+    .l-picture {
+      @include size(100%);
+
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+    }
+
+    .c-picture {
+      @include size(100%);
+
+      .o-image {
+        @include size(100%);
+      }
+    }
+  }
+}

@@ -7,7 +7,11 @@
       class="c-canvasShow"
       style="touch-action: none"
     ></canvas>
-    <canvas ref="canvasMap" class="c-canvasMap"></canvas>
+    <canvas
+      ref="canvasMap"
+      class="c-canvasMap"
+      style="touch-action: none"
+    ></canvas>
   </div>
 </template>
 <script>
@@ -71,8 +75,6 @@ export default {
 
       // 用來關 draw 的標記
       stop: false,
-
-
     }
   },
   mounted() {
@@ -106,8 +108,14 @@ export default {
       const canvasMap = this.$refs.canvasMap
 
       // init w h
-      this.numWindowOriginWidth  = canvasShow.width  = canvasMap.width  = window.innerWidth
-      this.numWindowOriginHeight = canvasShow.height = canvasMap.height = window.innerHeight
+      this.numWindowOriginWidth =
+        canvasShow.width =
+        canvasMap.width =
+          window.innerWidth
+      this.numWindowOriginHeight =
+        canvasShow.height =
+        canvasMap.height =
+          window.innerHeight
 
       // init context
       this.ctxShowCanvas = canvasShow.getContext('2d')
@@ -116,20 +124,19 @@ export default {
 
     initImg() {
       const domImgShow = this.$refs.imgShow
-      const domImgMap  = this.$refs.imgMap
-      const picScale       = this.picScale
+      const domImgMap = this.$refs.imgMap
+      const picScale = this.picScale
       const numWindowOriginWidth = this.numWindowOriginWidth
       const numWindowOriginHeight = this.numWindowOriginHeight
 
-      this.numImgOriginWidth  = domImgShow.width
+      this.numImgOriginWidth = domImgShow.width
       this.numImgOriginHeight = domImgShow.height
-      this.numImgRatio  = this.numImgOriginWidth / this.numImgOriginHeight;
+      this.numImgRatio = this.numImgOriginWidth / this.numImgOriginHeight
 
-
-      let numDisplayPicWidth = 0;
-      let numDisplayPicHeight = 0;
-      let numDisplayWindowWidth;
-      let numDisplayWindowHeight;
+      let numDisplayPicWidth = 0
+      let numDisplayPicHeight = 0
+      let numDisplayWindowWidth
+      let numDisplayWindowHeight
       let dir = ''
 
       if (numWindowOriginWidth >= numWindowOriginHeight) {
@@ -142,11 +149,9 @@ export default {
         dir = 'horizontal'
       }
 
-      this.numFreeWidth = this.numDisplayWidth - numWindowWidth
-      this.numFreeHeight = numWindowHeight - this.numDisplayHeight
-
-      numDisplayPicWidth  = numDisplayWindowWidth * this.picScale;
-      numDisplayPicHeight = ((numDisplayWindowWidth * this.picScale) / this.numImgRatio)
+      numDisplayPicWidth = numDisplayWindowWidth * this.picScale
+      numDisplayPicHeight =
+        (numDisplayWindowWidth * this.picScale) / this.numImgRatio
       this.numFreeWidth = numDisplayPicWidth - numDisplayWindowWidth
       this.numFreeHeight = numDisplayPicHeight - numDisplayWindowHeight
 
@@ -197,11 +202,10 @@ export default {
         vec2MouseMove.set(vec2MouseMove.y, -vec2MouseMove.x)
       }
 
-
       const vec2Offset = this.vec2ScreenOffset.sub(vec2MouseMove)
 
-      let fixX = vec2Offset.x;
-      let fixY = vec2Offset.y;
+      let fixX = vec2Offset.x
+      let fixY = vec2Offset.y
       // fix x
       if (numFreeWidth <= 0) {
         fixX = 0
@@ -230,9 +234,7 @@ export default {
     draw() {
       if (this.stop) return false
 
-      if (this.stop) return false;
-
-      const numWindowOriginWidth  = this.numWindowOriginWidth
+      const numWindowOriginWidth = this.numWindowOriginWidth
       const numWindowOriginHeight = this.numWindowOriginHeight
       const domImgShow = this.$refs.imgShow
       const domImgMap = this.$refs.imgMap
@@ -243,36 +245,51 @@ export default {
       const numDisplayPicHeight = this.numDisplayPicHeight
 
       this.ctxShowCanvas.fillStyle = this.bgColor
-      this.ctxShowCanvas.fillRect(0, 0, numWindowOriginWidth, numWindowOriginHeight)
-      this.ctxMapCanvas.clearRect(0, 0, numWindowOriginWidth, numWindowOriginHeight)
-
+      this.ctxShowCanvas.fillRect(
+        0,
+        0,
+        numWindowOriginWidth,
+        numWindowOriginHeight
+      )
+      this.ctxMapCanvas.clearRect(
+        0,
+        0,
+        numWindowOriginWidth,
+        numWindowOriginHeight
+      )
 
       this.ctxShowCanvas.save()
       this.ctxMapCanvas.save()
 
-        this.ctxShowCanvas.translate(numWindowOriginWidth / 2, numWindowOriginHeight / 2)
-        this.ctxMapCanvas.translate(numWindowOriginWidth / 2, numWindowOriginHeight / 2)
+      this.ctxShowCanvas.translate(
+        numWindowOriginWidth / 2,
+        numWindowOriginHeight / 2
+      )
+      this.ctxMapCanvas.translate(
+        numWindowOriginWidth / 2,
+        numWindowOriginHeight / 2
+      )
 
-        if (this.dir === 'horizontal') {
-          this.ctxShowCanvas.rotate(90 * Math.PI / 180)
-          this.ctxMapCanvas.rotate(90 * Math.PI / 180)
-        }
+      if (this.dir === 'horizontal') {
+        this.ctxShowCanvas.rotate((90 * Math.PI) / 180)
+        this.ctxMapCanvas.rotate((90 * Math.PI) / 180)
+      }
 
-        this.ctxShowCanvas.drawImage(
-            domImgShow,
-            - numDisplayPicWidth / 2 + vec2ScreenOffset.x,
-            - numDisplayPicHeight / 2 + vec2ScreenOffset.y,
-            numDisplayPicWidth,
-            numDisplayPicHeight
-        );
+      this.ctxShowCanvas.drawImage(
+        domImgShow,
+        -numDisplayPicWidth / 2 + vec2ScreenOffset.x,
+        -numDisplayPicHeight / 2 + vec2ScreenOffset.y,
+        numDisplayPicWidth,
+        numDisplayPicHeight
+      )
 
-        this.ctxMapCanvas.drawImage(
-          domImgMap,
-          - numDisplayPicWidth / 2 + vec2ScreenOffset.x,
-          - numDisplayPicHeight / 2 + vec2ScreenOffset.y,
-          numDisplayPicWidth,
-          numDisplayPicHeight
-        );
+      this.ctxMapCanvas.drawImage(
+        domImgMap,
+        -numDisplayPicWidth / 2 + vec2ScreenOffset.x,
+        -numDisplayPicHeight / 2 + vec2ScreenOffset.y,
+        numDisplayPicWidth,
+        numDisplayPicHeight
+      )
 
       this.ctxMapCanvas.restore()
       this.ctxShowCanvas.restore()

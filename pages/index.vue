@@ -1,7 +1,13 @@
 <template>
   <div class="c-container">
+    <div class="l-popup pointer-events-none">
+      <Popup />
+    </div>
     <div class="l-topic">
       <Topic />
+    </div>
+    <div class="l-message">
+      <Message />
     </div>
     <div class="l-socket-connect">
       <!-- <SocketConnect /> -->
@@ -21,15 +27,19 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import SocketConnect from '~/components/SocketConnect/index.vue'
+import Popup from '~/components/Popup/index.vue'
 import Topic from '~/components/Topic/index.vue'
+import Message from '~/components/Message/index.vue'
+import SocketConnect from '~/components/SocketConnect/index.vue'
 
 export default {
   name: 'IndexPage',
   components: {
+    Popup,
+    Topic,
+    Message,
     // eslint-disable-next-line vue/no-unused-components
     SocketConnect,
-    Topic,
   },
   data() {
     return {
@@ -65,11 +75,27 @@ export default {
 <style lang="scss">
 @import '~/assets/scss/main';
 .c-container {
+  .l-popup {
+    @include size(100%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: $z-popup;
+    transform: translate(-50%, -50%);
+  }
+
   .l-topic {
     position: absolute;
     top: 10px;
     left: 10px;
     z-index: $z-topic;
+  }
+
+  .l-message {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: $z-message;
   }
 
   .l-game {

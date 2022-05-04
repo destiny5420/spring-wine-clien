@@ -1,0 +1,36 @@
+.c-message {
+  .c-message__wrap {
+    .c-inner {
+      @include image-inner(500, 200);
+
+      width: 200px;
+    }
+
+    .l-content {
+      @include size(100%);
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .c-content {
+      @include size(inherit);
+
+      .a-content {
+        @include size(inherit);
+
+        // transform: translateX(100%);
+        opacity: 0;
+      }
+
+      .c-content__wrap {
+        @include size(inherit);
+        @include flex(center, center, column);
+
+        background-color: rgba($color: $c-grayscale-ddd, $alpha: 100%);
+      }
+    }
+  }
+}

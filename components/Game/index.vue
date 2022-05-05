@@ -7,6 +7,7 @@
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import Vec2 from './js/Vec2'
 
 
@@ -51,7 +52,6 @@ export default {
       numImgRatio: 0,
 
       // 真正用來畫的數據
-      dir: 'vertical',
       numDisplayWindowWidth: 0,
       numDisplayWindowHeight: 0,
       numDisplayPicWidth: 0,
@@ -72,14 +72,17 @@ export default {
 
     }
   },
+  computed: {
+    ...mapGetters(['winfowGameDir'])
+  },
   mounted() {
     window.addEventListener('load', this.load)
-    window.addEventListener('resize', this.init)
+    window.addEventListener('resize', this.initSize)
   },
   destroyed() {
     this.stop = true
     window.removeEventListener('load', this.load)
-    window.removeEventListener('resize', this.init)
+    window.removeEventListener('resize', this.initSize)
     window.removeEventListener('mouseup',   this.dragMouseUp)
     window.removeEventListener('mousemove', this.dragMouseMove)
     window.removeEventListener('mousedown', this.dragMouseDown)
@@ -93,6 +96,7 @@ export default {
     init() {
       this.initCanvas()
       this.initImg()
+      this.initSize()
       this.initDrag()
 
       this.initGetPixel()
@@ -102,10 +106,6 @@ export default {
       const canvasShow = this.$refs.canvasShow
       const canvasMap  = this.$refs.canvasMap
 
-      // init w h
-      this.numWindowOriginWidth  = canvasShow.width  = canvasMap.width  = window.innerWidth
-      this.numWindowOriginHeight = canvasShow.height = canvasMap.height = window.innerHeight
-
       // init context
       this.ctxShowCanvas = canvasShow.getContext('2d');
       this.ctxMapCanvas  = canvasMap.getContext('2d');
@@ -113,44 +113,49 @@ export default {
 
     initImg() {
       const domImgShow = this.$refs.imgShow
-      const domImgMap  = this.$refs.imgMap
-      const picScale       = this.picScale
-      const numWindowOriginWidth = this.numWindowOriginWidth
-      const numWindowOriginHeight = this.numWindowOriginHeight
 
       this.numImgOriginWidth  = domImgShow.width
       this.numImgOriginHeight = domImgShow.height
       this.numImgRatio  = this.numImgOriginWidth / this.numImgOriginHeight;
+    },
+
+    initSize() {
+      // init canvas size
+      const canvasShow = this.$refs.canvasShow
+      const canvasMap  = this.$refs.canvasMap
+      const picScale       = this.picScale
+
+      const numWindowOriginWidth = this.numWindowOriginWidth  = canvasShow.width  = canvasMap.width  = window.innerWidth
+      const numWindowOriginHeight = this.numWindowOriginHeight = canvasShow.height = canvasMap.height = window.innerHeight
 
 
+      // init Img Compu Size
       let numDisplayPicWidth = 0;
       let numDisplayPicHeight = 0;
       let numDisplayWindowWidth;
       let numDisplayWindowHeight;
-      let dir = ''
 
-      if (numWindowOriginWidth >= numWindowOriginHeight) {
+
+      if (this.winfowGameDir === 'vertical') {
         numDisplayWindowWidth = numWindowOriginWidth
         numDisplayWindowHeight = numWindowOriginHeight
-        dir = 'vertical'
       } else {
         numDisplayWindowWidth = numWindowOriginHeight
         numDisplayWindowHeight = numWindowOriginWidth
-        dir = 'horizontal'
       }
 
 
-      numDisplayPicWidth  = numDisplayWindowWidth * this.picScale;
-      numDisplayPicHeight = ((numDisplayWindowWidth * this.picScale) / this.numImgRatio)
+      numDisplayPicWidth  = numDisplayWindowWidth * picScale;
+      numDisplayPicHeight = ((numDisplayWindowWidth * picScale) / this.numImgRatio)
       this.numFreeWidth = numDisplayPicWidth - numDisplayWindowWidth
       this.numFreeHeight = numDisplayPicHeight - numDisplayWindowHeight
 
       this.numDisplayWindowWidth = numDisplayWindowWidth
       this.numDisplayWindowHeight = numDisplayWindowHeight
-      this.dir = dir
       this.numDisplayPicWidth = numDisplayPicWidth
       this.numDisplayPicHeight = numDisplayPicHeight
       this.vec2ScreenOffset.set(0, 0)
+
     },
 
     initDrag() {
@@ -183,10 +188,10 @@ export default {
 
       const numFreeWidth = this.numFreeWidth
       const numFreeHeight = this.numFreeHeight
-      const dir = this.dir
+      const strGameDir = this.winfowGameDir
       const vec2MouseMove = this.vec2DragMousePos.sub({ x, y })
 
-      if (dir === 'horizontal') {
+      if (strGameDir === 'horizontal') {
         vec2MouseMove.set(vec2MouseMove.y, -vec2MouseMove.x)
       }
 
@@ -221,7 +226,6 @@ export default {
     },
 
     draw() {
-
       if (this.stop) return false;
 
       const numWindowOriginWidth  = this.numWindowOriginWidth
@@ -246,7 +250,7 @@ export default {
         this.ctxShowCanvas.translate(numWindowOriginWidth / 2, numWindowOriginHeight / 2)
         this.ctxMapCanvas.translate(numWindowOriginWidth / 2, numWindowOriginHeight / 2)
 
-        if (this.dir === 'horizontal') {
+        if (this.winfowGameDir === 'horizontal') {
           this.ctxShowCanvas.rotate(90 * Math.PI / 180)
           this.ctxMapCanvas.rotate(90 * Math.PI / 180)
         }

@@ -1,7 +1,9 @@
 export const state = () => ({
-  width: 0
+  width: 0,
+  gameDir: 'vertical'
 })
 
 export const mutations = {
   UPDATE_WIDTH: state => { state.width = window.innerWidth },
+  UPDATE_GAME_DIR: state => { state.gameDir = window.innerWidth >= window.innerHeight ? 'vertical' : 'horizontal' }
 }

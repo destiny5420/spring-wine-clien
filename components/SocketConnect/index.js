@@ -96,10 +96,9 @@ export default {
           const { data } = response
 
           if (data.answerCorrect) {
-            // 答對流程
-          } else {
-            // 錯誤流程
-            console.log(data.result)
+            self.$store.dispatch('status/updateGameStart', {
+              key: false,
+            })
           }
         })
         .catch(function (err) {

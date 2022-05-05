@@ -10,7 +10,7 @@
       <Message />
     </div>
     <div class="l-socket-connect">
-      <!-- <SocketConnect /> -->
+      <SocketConnect />
     </div>
     <div class="l-game">
       <Game

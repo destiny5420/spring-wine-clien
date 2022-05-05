@@ -5,8 +5,15 @@
       <div class="c-picture">
         <div class="o-image relative">
           <picture class="image-obj">
-            <source media="(max-width: 640px)" :srcset="picture.imgUrl_m" />
-            <img :src="picture.imgUrl" :alt="picture.alt" class="w-full" />
+            <source
+              media="(max-width: 640px)"
+              :srcset="getCharacterImage.imgUrl_m"
+            />
+            <img
+              :src="getCharacterImage.imgUrl"
+              :alt="getCharacterImage.pictureAlt"
+              class="w-full"
+            />
           </picture>
         </div>
       </div>

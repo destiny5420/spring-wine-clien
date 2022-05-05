@@ -17,6 +17,7 @@
 <script>
 import { mapGetters, mapMutations } from 'vuex'
 import Vec2 from './js/Vec2'
+import ten2hex from '~/assets/utils/ten2hex.js'
 
 export default {
   props: {
@@ -78,7 +79,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['winfowGameDir'])
+    ...mapGetters(['winfowGameDir', 'gameStart', 'canTouch']),
   },
   mounted() {
     window.addEventListener('load', this.load)
@@ -88,14 +89,14 @@ export default {
     this.stop = true
     window.removeEventListener('load', this.load)
     window.removeEventListener('resize', this.initSize)
-    window.removeEventListener('mouseup',   this.dragMouseUp)
+    window.removeEventListener('mouseup', this.dragMouseUp)
     window.removeEventListener('mousemove', this.dragMouseMove)
     window.removeEventListener('mousedown', this.dragMouseDown)
     window.removeEventListener('mousemove', this.getPixel)
   },
   methods: {
     ...mapMutations({
-      updateGameDir: 'windowInfo/UPDATE_GAME_DIR'
+      updateGameDir: 'windowInfo/UPDATE_GAME_DIR',
     }),
     load() {
       this.init()
@@ -124,7 +125,7 @@ export default {
 
       this.numImgOriginWidth = domImgShow.width
       this.numImgOriginHeight = domImgShow.height
-      this.numImgRatio  = this.numImgOriginWidth / this.numImgOriginHeight;
+      this.numImgRatio = this.numImgOriginWidth / this.numImgOriginHeight
     },
 
     initSize() {
@@ -132,18 +133,25 @@ export default {
 
       // init canvas size
       const canvasShow = this.$refs.canvasShow
-      const canvasMap  = this.$refs.canvasMap
-      const picScale       = this.picScale
+      const canvasMap = this.$refs.canvasMap
+      const picScale = this.picScale
 
-      const numWindowOriginWidth = this.numWindowOriginWidth  = canvasShow.width  = canvasMap.width  = window.innerWidth
-      const numWindowOriginHeight = this.numWindowOriginHeight = canvasShow.height = canvasMap.height = window.innerHeight
-
+      const numWindowOriginWidth =
+        (this.numWindowOriginWidth =
+        canvasShow.width =
+        canvasMap.width =
+          window.innerWidth)
+      const numWindowOriginHeight =
+        (this.numWindowOriginHeight =
+        canvasShow.height =
+        canvasMap.height =
+          window.innerHeight)
 
       // init Img Compu Size
-      let numDisplayPicWidth = 0;
-      let numDisplayPicHeight = 0;
-      let numDisplayWindowWidth;
-      let numDisplayWindowHeight;
+      let numDisplayPicWidth = 0
+      let numDisplayPicHeight = 0
+      let numDisplayWindowWidth
+      let numDisplayWindowHeight
 
       if (this.winfowGameDir === 'vertical') {
         numDisplayWindowWidth = numWindowOriginWidth
@@ -153,9 +161,9 @@ export default {
         numDisplayWindowHeight = numWindowOriginWidth
       }
 
-
-      numDisplayPicWidth  = numDisplayWindowWidth * picScale;
-      numDisplayPicHeight = ((numDisplayWindowWidth * picScale) / this.numImgRatio)
+      numDisplayPicWidth = numDisplayWindowWidth * picScale
+      numDisplayPicHeight =
+        (numDisplayWindowWidth * picScale) / this.numImgRatio
       this.numFreeWidth = numDisplayPicWidth - numDisplayWindowWidth
       this.numFreeHeight = numDisplayPicHeight - numDisplayWindowHeight
 
@@ -164,7 +172,6 @@ export default {
       this.numDisplayPicWidth = numDisplayPicWidth
       this.numDisplayPicHeight = numDisplayPicHeight
       this.vec2ScreenOffset.set(0, 0)
-
     },
 
     initDrag() {
@@ -236,9 +243,9 @@ export default {
     },
 
     draw() {
-      if (this.stop) return false;
+      if (this.stop) return false
 
-      const numWindowOriginWidth  = this.numWindowOriginWidth
+      const numWindowOriginWidth = this.numWindowOriginWidth
       const numWindowOriginHeight = this.numWindowOriginHeight
       const domImgShow = this.$refs.imgShow
       const domImgMap = this.$refs.imgMap
@@ -274,10 +281,10 @@ export default {
         numWindowOriginHeight / 2
       )
 
-        if (this.winfowGameDir === 'horizontal') {
-          this.ctxShowCanvas.rotate(90 * Math.PI / 180)
-          this.ctxMapCanvas.rotate(90 * Math.PI / 180)
-        }
+      if (this.winfowGameDir === 'horizontal') {
+        this.ctxShowCanvas.rotate((90 * Math.PI) / 180)
+        this.ctxMapCanvas.rotate((90 * Math.PI) / 180)
+      }
 
       this.ctxShowCanvas.drawImage(
         domImgShow,
@@ -306,7 +313,27 @@ export default {
     },
     getPixel(ev) {
       const data = this.ctxMapCanvas.getImageData(ev.x, ev.y, 1, 1).data
+      this.sendClickEvent(data)
       this.$emit('update:click-color', data)
+    },
+    sendClickEvent(colorData) {
+      console.log(
+        `this.gameStart: ${this.gameStart} / this.canTouch: ${this.canTouch}`
+      )
+      if (!this.gameStart) {
+        return
+      }
+
+      if (!this.canTouch) {
+        return
+      }
+
+      const color = colorData
+        ? `#${ten2hex(colorData[0])}${ten2hex(colorData[1])}${ten2hex(
+            colorData[2]
+          )}`
+        : ''
+      this.$nuxt.$emit('API:GameClick', color)
     },
   },
 }

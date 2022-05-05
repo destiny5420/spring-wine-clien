@@ -14,7 +14,7 @@ export default {
           'width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover',
       },
       { name: 'format-detection', content: 'telephone=no' },
-    ]
+    ],
   },
 
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -48,7 +48,7 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     '@nuxtjs/style-resources',
-    '@nuxtjs/google-fonts',
+    // '@nuxtjs/google-fonts',
     'nuxt-gsap-module',
   ],
 
@@ -60,7 +60,7 @@ export default {
 
   googleFonts: {
     families: {
-      'Noto+Sans+TC': [400, 500, 700],
+      // 'Noto+Sans+TC': [400, 500, 700],
     },
   },
 

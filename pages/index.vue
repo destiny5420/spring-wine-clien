@@ -57,13 +57,15 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['winfowGameDir'])
+    ...mapGetters(['winfowGameDir']),
   },
   watch: {
     'game.clickColor'() {
       const clickColor = this.game.clickColor
       const color = clickColor
-        ? `#${ten2hex(clickColor[0])}${ten2hex(clickColor[1])}${ten2hex(clickColor[2])}`
+        ? `#${ten2hex(clickColor[0])}${ten2hex(clickColor[1])}${ten2hex(
+            clickColor[2]
+          )}`
         : ''
 
       this.$refs.color.textContent = color

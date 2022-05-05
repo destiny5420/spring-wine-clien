@@ -21,7 +21,10 @@
         :click-color.sync="game.clickColor"
       />
     </div>
-    <div ref="testColorDiv" class="testColor">{{ winfowGameDir }}</div>
+    <div ref="testColorDiv" class="testColor">
+      <div class="dir">{{ winfowGameDir }}</div>
+      <div ref="color" class="color"></div>
+    </div>
   </div>
 </template>
 
@@ -31,6 +34,7 @@ import Popup from '~/components/Popup/index.vue'
 import Topic from '~/components/Topic/index.vue'
 import Message from '~/components/Message/index.vue'
 import SocketConnect from '~/components/SocketConnect/index.vue'
+import ten2hex from '~/assets/utils/ten2hex.js'
 
 export default {
   name: 'IndexPage',
@@ -59,8 +63,10 @@ export default {
     'game.clickColor'() {
       const clickColor = this.game.clickColor
       const color = clickColor
-        ? `rgb(${clickColor[0]}, ${clickColor[1]}, ${clickColor[2]})`
+        ? `#${ten2hex(clickColor[0])}${ten2hex(clickColor[1])}${ten2hex(clickColor[2])}`
         : ''
+
+      this.$refs.color.textContent = color
       this.$refs.testColorDiv.style.backgroundColor = color
     },
   },
@@ -116,8 +122,8 @@ export default {
     right: 0;
     bottom: 0;
     z-index: 10;
-    width: 100px;
-    height: 100px;
+    width: px2vw(200);
+    height: px2vw(100);
     background-color: #f00;
     color: #00ffff;
     font-size: px2vw(30);

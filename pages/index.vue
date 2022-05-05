@@ -21,16 +21,20 @@
         :click-color.sync="game.clickColor"
       />
     </div>
-    <div ref="testColorDiv" class="testColor"></div>
+    <div ref="testColorDiv" class="testColor">
+      <div class="dir">{{ winfowGameDir }}</div>
+      <div ref="color" class="color"></div>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 import Popup from '~/components/Popup/index.vue'
 import Topic from '~/components/Topic/index.vue'
 import Message from '~/components/Message/index.vue'
 import SocketConnect from '~/components/SocketConnect/index.vue'
+import ten2hex from '~/assets/utils/ten2hex.js'
 
 export default {
   name: 'IndexPage',
@@ -46,28 +50,36 @@ export default {
       game: {
         imgOrigin: require('~/pages/imgs/picture-origin.jpg'),
         imgMap: require('~/pages/imgs/picture-map.jpg'),
-        picScale: 1.3,
+        picScale: 1.7,
         clickColor: null,
         bgColor: 'skyblue',
       },
     }
   },
+  computed: {
+    ...mapGetters(['winfowGameDir'])
+  },
   watch: {
     'game.clickColor'() {
       const clickColor = this.game.clickColor
       const color = clickColor
-        ? `rgb(${clickColor[0]}, ${clickColor[1]}, ${clickColor[2]})`
+        ? `#${ten2hex(clickColor[0])}${ten2hex(clickColor[1])}${ten2hex(clickColor[2])}`
         : ''
+
+      this.$refs.color.textContent = color
       this.$refs.testColorDiv.style.backgroundColor = color
     },
   },
   mounted() {
     this.updateWindowWidth()
+    this.updateGameDir()
     window.addEventListener('resize', this.updateWindowWidth)
+    window.addEventListener('resize', this.updateGameDir)
   },
   methods: {
     ...mapMutations({
       updateWindowWidth: 'windowInfo/UPDATE_WIDTH',
+      updateGameDir: 'windowInfo/UPDATE_GAME_DIR'
     }),
   },
 }
@@ -110,9 +122,11 @@ export default {
     right: 0;
     bottom: 0;
     z-index: 10;
-    width: 100px;
-    height: 100px;
+    width: px2vw(200);
+    height: px2vw(100);
     background-color: #f00;
+    color: #00ffff;
+    font-size: px2vw(30);
   }
 }
 </style>

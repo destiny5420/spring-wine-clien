@@ -21,12 +21,12 @@
         :click-color.sync="game.clickColor"
       />
     </div>
-    <div ref="testColorDiv" class="testColor"></div>
+    <div ref="testColorDiv" class="testColor">{{ winfowGameDir }}</div>
   </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 import Popup from '~/components/Popup/index.vue'
 import Topic from '~/components/Topic/index.vue'
 import Message from '~/components/Message/index.vue'
@@ -51,6 +51,9 @@ export default {
         bgColor: 'skyblue',
       },
     }
+  },
+  computed: {
+    ...mapGetters(['winfowGameDir'])
   },
   watch: {
     'game.clickColor'() {
@@ -116,6 +119,8 @@ export default {
     width: 100px;
     height: 100px;
     background-color: #f00;
+    color: #00ffff;
+    font-size: px2vw(30);
   }
 }
 </style>

@@ -1,6 +1,6 @@
 export const state = () => ({
   width: 0,
-  gameDir: 'vertical'
+  gameDir: 'vertical'  // vertical | horizontal
 })
 
 export const mutations = {

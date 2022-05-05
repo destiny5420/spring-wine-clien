@@ -33,7 +33,6 @@ export default {
   methods: {
     onChangeIndex(index) {
       this.curIndex = index
-      console.log(`onChangeIndex / index: `, index)
     },
   },
 }

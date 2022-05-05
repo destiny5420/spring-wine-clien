@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     onSkipClick() {
-      console.log(`onSkipClick`)
       this.open = false
 
       this.$nuxt.$emit('Message:Show', '關閉視窗')

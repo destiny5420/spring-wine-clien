@@ -72,14 +72,11 @@ export default {
   },
   mounted() {
     this.updateWindowWidth()
-    this.updateGameDir()
     window.addEventListener('resize', this.updateWindowWidth)
-    window.addEventListener('resize', this.updateGameDir)
   },
   methods: {
     ...mapMutations({
       updateWindowWidth: 'windowInfo/UPDATE_WIDTH',
-      updateGameDir: 'windowInfo/UPDATE_GAME_DIR'
     }),
   },
 }

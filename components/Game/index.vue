@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 import Vec2 from './js/Vec2'
 
 export default {
@@ -94,6 +94,9 @@ export default {
     window.removeEventListener('mousemove', this.getPixel)
   },
   methods: {
+    ...mapMutations({
+      updateGameDir: 'windowInfo/UPDATE_GAME_DIR'
+    }),
     load() {
       this.init()
       this.draw()
@@ -125,6 +128,8 @@ export default {
     },
 
     initSize() {
+      this.updateGameDir()
+
       // init canvas size
       const canvasShow = this.$refs.canvasShow
       const canvasMap  = this.$refs.canvasMap
@@ -139,7 +144,6 @@ export default {
       let numDisplayPicHeight = 0;
       let numDisplayWindowWidth;
       let numDisplayWindowHeight;
-
 
       if (this.winfowGameDir === 'vertical') {
         numDisplayWindowWidth = numWindowOriginWidth

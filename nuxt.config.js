@@ -1,6 +1,22 @@
 import Configure from './assets/js/utils/Configure'
 
 export default {
+  head: {
+    title: '',
+    htmlAttrs: {
+      lang: 'zh-tw',
+    },
+    meta: [
+      { charset: 'utf-8' },
+      {
+        name: 'viewport',
+        content:
+          'width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover',
+      },
+      { name: 'format-detection', content: 'telephone=no' },
+    ]
+  },
+
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: true,
 

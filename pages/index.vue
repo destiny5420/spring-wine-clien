@@ -46,7 +46,7 @@ export default {
       game: {
         imgOrigin: require('~/pages/imgs/picture-origin.jpg'),
         imgMap: require('~/pages/imgs/picture-map.jpg'),
-        picScale: 1.3,
+        picScale: 1.7,
         clickColor: null,
         bgColor: 'skyblue',
       },
@@ -63,11 +63,14 @@ export default {
   },
   mounted() {
     this.updateWindowWidth()
+    this.updateGameDir()
     window.addEventListener('resize', this.updateWindowWidth)
+    window.addEventListener('resize', this.updateGameDir)
   },
   methods: {
     ...mapMutations({
       updateWindowWidth: 'windowInfo/UPDATE_WIDTH',
+      updateGameDir: 'windowInfo/UPDATE_GAME_DIR'
     }),
   },
 }

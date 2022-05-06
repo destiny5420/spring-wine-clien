@@ -2,7 +2,7 @@ export default {
   name: 'cLogin',
   data() {
     return {
-      open: true,
+      open: false,
       name: `paperhsiao`,
       email: `paper.hsiao@gmail.com`,
     }

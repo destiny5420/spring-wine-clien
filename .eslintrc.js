@@ -21,5 +21,6 @@ module.exports = {
     'vue/no-v-html': 'off',
     'import/no-named-as-default': 'off',
     'vue/valid-template-root': 'off',
+    'vue/no-unused-components': 'off',
   },
 }

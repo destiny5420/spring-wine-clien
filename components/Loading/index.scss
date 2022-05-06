@@ -1,0 +1,21 @@
+.c-loading {
+  @include size(inherit);
+
+  .c-loading__wrap {
+    @include flex();
+    @include size(inherit);
+
+    background-color: $c-blue-349;
+  }
+
+  .c-battery {
+    .c-battery__wrap {
+      .o-image {
+        @include image-inner(94, 171);
+
+        transform: rotateZ(180deg);
+        width: 94px;
+      }
+    }
+  }
+}

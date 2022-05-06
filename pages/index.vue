@@ -1,5 +1,8 @@
 <template>
   <div class="c-container">
+    <!-- <div class="l-loading">
+      <Loading />
+    </div> -->
     <div class="l-popup pointer-events-none">
       <Popup />
     </div>
@@ -33,6 +36,7 @@
 
 <script>
 import { mapMutations, mapGetters } from 'vuex'
+import Loading from '~/components/Loading/index.vue'
 import Popup from '~/components/Popup/index.vue'
 import Login from '~/components/Login/index.vue'
 import Topic from '~/components/Topic/index.vue'
@@ -44,6 +48,7 @@ import Configure from '~/assets/js/utils/Configure'
 export default {
   name: 'IndexPage',
   components: {
+    Loading,
     Popup,
     Login,
     Topic,
@@ -112,6 +117,12 @@ export default {
 <style lang="scss">
 @import '~/assets/scss/main';
 .c-container {
+  .l-loading {
+    @include size(100%);
+    position: fixed;
+    z-index: $z-loading;
+  }
+
   .l-popup {
     @include size(100%);
     position: absolute;

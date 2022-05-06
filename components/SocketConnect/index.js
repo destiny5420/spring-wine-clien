@@ -14,6 +14,7 @@ export default {
   created() {
     this.$nuxt.$on('Socket:CS_MESSAGE', this.CS_MESSAGE)
     this.$nuxt.$on('API:GameClick', this.onGameClick)
+    this.$nuxt.$on('API:LoginHandler', this.onLoginHandler)
 
     this.monogoAPI = this.$axios.create({
       baseURL: `${Configure.SERVER_URL}/mongo`,
@@ -108,6 +109,36 @@ export default {
           self.$store.dispatch('status/updateCanTouch', {
             key: true,
           })
+        })
+    },
+    onLoginHandler({ name, email }) {
+      const self = this
+
+      this.monogoAPI({
+        method: 'post',
+        url: 'register',
+        data: {
+          name,
+          email,
+        },
+      })
+        .then(function (response) {
+          const { data } = response
+          console.log(`[Register] data: `, data)
+
+          localStorage.setItem(
+            Configure.LOCAL_STORAGE_ROOT,
+            JSON.stringify({
+              name: data.name,
+              email: data.email,
+            })
+          )
+
+          self.$nuxt.$emit('Root:ReadPlayerInfo')
+          self.$nuxt.$emit('Login:Close')
+        })
+        .catch(function (err) {
+          console.error(err)
         })
     },
     onCSMessage() {

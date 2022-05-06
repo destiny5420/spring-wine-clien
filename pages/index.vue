@@ -3,6 +3,9 @@
     <div class="l-popup pointer-events-none">
       <Popup />
     </div>
+    <div class="l-login pointer-events-none">
+      <Login />
+    </div>
     <div class="l-topic">
       <Topic />
     </div>
@@ -31,18 +34,20 @@
 <script>
 import { mapMutations, mapGetters } from 'vuex'
 import Popup from '~/components/Popup/index.vue'
+import Login from '~/components/Login/index.vue'
 import Topic from '~/components/Topic/index.vue'
 import Message from '~/components/Message/index.vue'
 import SocketConnect from '~/components/SocketConnect/index.vue'
 import ten2hex from '~/assets/utils/ten2hex.js'
+import Configure from '~/assets/js/utils/Configure'
 
 export default {
   name: 'IndexPage',
   components: {
     Popup,
+    Login,
     Topic,
     Message,
-    // eslint-disable-next-line vue/no-unused-components
     SocketConnect,
   },
   data() {
@@ -57,7 +62,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['winfowGameDir']),
+    ...mapGetters(['winfowGameDir', 'name', 'email']),
   },
   watch: {
     'game.clickColor'() {
@@ -72,14 +77,35 @@ export default {
       this.$refs.testColorDiv.style.backgroundColor = color
     },
   },
+  created() {
+    this.$nuxt.$on('Root:ReadPlayerInfo', this.readPlayerInfoFromLocalStorage)
+  },
   mounted() {
     this.updateWindowWidth()
     window.addEventListener('resize', this.updateWindowWidth)
+    this.checkLogin()
   },
   methods: {
     ...mapMutations({
       updateWindowWidth: 'windowInfo/UPDATE_WIDTH',
     }),
+    checkLogin() {
+      const hasData = localStorage.getItem(Configure.LOCAL_STORAGE_ROOT)
+
+      if (!hasData) {
+        this.$nuxt.$emit('Login:Open')
+      } else {
+        this.readPlayerInfoFromLocalStorage()
+        this.$nuxt.$emit('Login:Close')
+      }
+    },
+    readPlayerInfoFromLocalStorage() {
+      const data = JSON.parse(
+        localStorage.getItem(Configure.LOCAL_STORAGE_ROOT)
+      )
+      this.$store.dispatch('player/updateName', { name: data.name })
+      this.$store.dispatch('player/updateEmail', { email: data.email })
+    },
   },
 }
 </script>
@@ -92,6 +118,17 @@ export default {
     top: 50%;
     left: 50%;
     z-index: $z-popup;
+    transform: translate(-50%, -50%);
+  }
+
+  .l-login {
+    @include size(100%);
+
+    @include size(100%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: $z-login;
     transform: translate(-50%, -50%);
   }
 

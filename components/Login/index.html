@@ -1,0 +1,42 @@
+<section class="c-login duration-250" :class="_classRoot">
+  <div class="c-login__wrap relative">
+    <div class="c-background">
+      <div class="c-background__wrap"></div>
+    </div>
+    <div class="l-panel">
+      <div class="c-panel">
+        <div class="c-panel__wrap">
+          <form class="c-form">
+            <div class="c-form__wrap">
+              <div class="l-input">
+                <div class="c-input c-name-input">
+                  <input
+                    type="text"
+                    placeholder="Your name"
+                    class="o-input"
+                    v-model.trim="name"
+                  />
+                </div>
+              </div>
+              <div class="l-input">
+                <div class="c-input c-email-input">
+                  <input
+                    type="email"
+                    placeholder="Your email"
+                    class="o-input"
+                    v-model.trim="email"
+                  />
+                </div>
+              </div>
+              <div class="l-login-btn">
+                <button class="c-login-btn pointer" @click="onLogin">
+                  <div class="c-login-btn__wrap">LOGIN</div>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+.c-login {
+  @include size(inherit);
+
+  pointer-events: none;
+  opacity: 0;
+
+  .c-login__wrap {
+    @include size(inherit);
+
+    .c-background {
+      @include size(inherit);
+
+      .c-background__wrap {
+        @include size(inherit);
+
+        background-color: rgba($color: $c-grayscale-363, $alpha: 50%);
+      }
+    }
+
+    .l-panel {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .c-panel {
+      .c-panel__wrap {
+        padding: 10px;
+        background-color: rgba($color: $c-grayscale-ddd, $alpha: 100%);
+      }
+    }
+
+    .c-form {
+      .c-form__wrap {
+        @include flex(flex-start, center, column);
+
+        gap: 10px;
+      }
+    }
+
+    .c-login-btn {
+      .c-login-btn__wrap {
+        padding: 5px;
+        background-color: $c-green-129;
+        border-radius: 6px;
+      }
+    }
+  }
+}

@@ -28,8 +28,14 @@ export default {
     }
   },
   created() {
-    this.$nuxt.$on('Popup:ShowIntroduction', this.onShowIntroduction)
-    this.$nuxt.$on('Popup:ShowMessage', this.onShowMessage)
+    this.$nuxt.$on('Popup:ShowIntroduction', () => {
+      this.onClosePopup()
+      this.onShowIntroduction()
+    })
+    this.$nuxt.$on('Popup:ShowMessage', (data) => {
+      this.onClosePopup()
+      this.onShowMessage(data)
+    })
   },
   computed: {
     _classRoot() {

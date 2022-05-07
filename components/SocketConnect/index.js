@@ -13,7 +13,6 @@ export default {
     }
   },
   created() {
-    this.$nuxt.$on('Socket:CS_MESSAGE', this.CS_MESSAGE)
     this.$nuxt.$on('API:GameClick', this.onGameClick)
     this.$nuxt.$on('API:LoginHandler', this.onLoginHandler)
 
@@ -50,10 +49,25 @@ export default {
           console.log(`遊戲發送通知囉`)
           break
         case 'SC_GAME_VICTORY':
-          const { mail, name } = data.data
+          const { mail, name, gameStatus } = data.data
           console.log(`有人得獎囉！得獎人: ${name} / mail: ${mail}`)
           this.$nuxt.$emit('Message:Show', `${name} 已經找到囉！你還在等什麼？`)
-          this.$nuxt.$emit('Root:CheckVictory', mail)
+
+          switch (gameStatus) {
+            case 'Playing':
+              this.$nuxt.$emit('Root:CheckVictory', mail)
+              break
+            default:
+              break
+          }
+
+          break
+        case 'SC_GAME_OVER':
+          console.log('遊戲結束囉！')
+          this.$nuxt.$emit('Popup:ShowMessage', {
+            title: `Round Over`,
+            message: `等待主持人出下一題`,
+          })
           break
         default:
           break
@@ -80,8 +94,38 @@ export default {
           break
       }
     },
-    onSendMsg() {
-      this.socket.emit('chat message', 'Hi, paper')
+    /**
+     * @desc API Methods below
+     */
+    onLoginHandler({ name, email }) {
+      const self = this
+
+      this.monogoAPI({
+        method: 'post',
+        url: 'register',
+        data: {
+          name,
+          email,
+        },
+      })
+        .then(function (response) {
+          const { data } = response
+          console.log(`[onLoginHandler] / data: `, data)
+
+          localStorage.setItem(
+            Configure.LOCAL_STORAGE_ROOT,
+            JSON.stringify({
+              name: data.name,
+              email: data.email,
+            })
+          )
+
+          self.$nuxt.$emit('Root:ReadPlayerInfo')
+          self.$nuxt.$emit('Login:Close')
+        })
+        .catch(function (err) {
+          console.error(`[onLoginHandler] / err log: ${err}`)
+        })
     },
     onRegister() {
       this.monogoAPI({
@@ -91,9 +135,13 @@ export default {
           name: 'paper',
           email: 'paper.hsiao@gmail.com',
         },
-      }).then(function (response) {
-        console.log(`response: `, response)
       })
+        .then(function (response) {
+          console.error(`[onRegister] / response: ${response}`)
+        })
+        .catch((err) => {
+          console.error(`[onRegister] / err log: ${err}`)
+        })
     },
     onGameClick(color) {
       const self = this
@@ -115,57 +163,23 @@ export default {
         },
       })
         .then(function (response) {
-          console.log(`response: `, response)
-          const { data } = response
+          console.log(`[onGameClick] / response: `, response)
+          const { answerCorrect } = response.data
 
-          if (data.answerCorrect) {
+          if (answerCorrect) {
             self.$store.dispatch('status/updateGameStart', {
               key: false,
             })
           }
         })
         .catch(function (err) {
-          console.error(err)
+          console.error(`[onGameClick] / err log: ${err}`)
         })
         .finally(function () {
           self.$store.dispatch('status/updateCanTouch', {
             key: true,
           })
         })
-    },
-
-    onLoginHandler({ name, email }) {
-      const self = this
-
-      this.monogoAPI({
-        method: 'post',
-        url: 'register',
-        data: {
-          name,
-          email,
-        },
-      })
-        .then(function (response) {
-          const { data } = response
-          console.log(`[Register] data: `, data)
-
-          localStorage.setItem(
-            Configure.LOCAL_STORAGE_ROOT,
-            JSON.stringify({
-              name: data.name,
-              email: data.email,
-            })
-          )
-
-          self.$nuxt.$emit('Root:ReadPlayerInfo')
-          self.$nuxt.$emit('Login:Close')
-        })
-        .catch(function (err) {
-          console.error(err)
-        })
-    },
-    onCSMessage() {
-      this.$nuxt.$emit('Socket:CS_MESSAGE')
     },
   },
 }

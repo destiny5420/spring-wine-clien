@@ -64,6 +64,10 @@ export default {
           break
         case 'SC_GAME_OVER':
           console.log('遊戲結束囉！')
+          this.$store.dispatch('status/updateGameStart', {
+            key: false,
+          })
+
           this.$nuxt.$emit('Popup:ShowMessage', {
             title: `Round Over`,
             message: `等待主持人出下一題`,

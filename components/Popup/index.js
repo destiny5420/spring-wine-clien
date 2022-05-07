@@ -2,32 +2,74 @@ export default {
   name: 'cPopup',
   data() {
     return {
-      open: true,
-      title: {
-        text: `遊戲介紹`,
-      },
+      rootOpen: false,
       introduction: {
-        text: `這是一款很好玩的遊戲這是一款很好玩的遊戲這是一款很好玩的遊戲這是一款很好玩的遊戲這是一款很好玩的遊戲這是一款很好玩的遊戲`,
+        open: false,
+        title: {
+          text: `遊戲介紹`,
+        },
+        content: {
+          text: `這是一款很好玩的遊戲這是一款很好玩的遊戲這是一款很好玩的遊戲這是一款很好玩的遊戲這是一款很好玩的遊戲這是一款很好玩的遊戲`,
+        },
+        closeBtn: {
+          text: `略過`,
+          onClickHandler: this.onSkipClick,
+        },
       },
-      closeBtn: {
-        text: `略過`,
-        onClickHandler: this.onSkipClick,
+      message: {
+        open: false,
+        title: {
+          text: ``,
+        },
+        content: {
+          text: ``,
+        },
       },
     }
+  },
+  created() {
+    this.$nuxt.$on('Popup:ShowIntroduction', this.onShowIntroduction)
+    this.$nuxt.$on('Popup:ShowMessage', this.onShowMessage)
   },
   computed: {
     _classRoot() {
       return {
-        'pointer-events-auto': this.open,
-        'opacity-1': this.open,
+        'pointer-events-auto': this.rootOpen,
+        'opacity-1': this.rootOpen,
+      }
+    },
+    _classIntroduction() {
+      return {
+        'pointer-events-auto': this.introduction.open,
+        'opacity-1': this.introduction.open,
+      }
+    },
+    _classMessage() {
+      return {
+        'pointer-events-auto': this.message.open,
+        'opacity-1': this.message.open,
       }
     },
   },
   methods: {
     onSkipClick() {
-      this.open = false
-
+      this.onClosePopup()
       this.$nuxt.$emit('Message:Show', '關閉視窗')
+    },
+    onShowIntroduction() {
+      this.introduction.open = true
+      this.rootOpen = true
+    },
+    onShowMessage({ title, message }) {
+      this.message.title.text = title
+      this.message.content.text = message
+      this.message.open = true
+      this.rootOpen = true
+    },
+    onClosePopup() {
+      this.rootOpen = false
+      this.message.open = false
+      this.introduction.open = false
     },
   },
 }

@@ -1,5 +1,6 @@
 /* eslint-disable no-case-declarations */
 import { io } from 'socket.io-client'
+import { mapGetters } from 'vuex'
 import Configure from '~/assets/js/utils/Configure'
 
 export default {
@@ -27,10 +28,12 @@ export default {
     })
   },
   mounted() {
-    console.log(`socket-connect mounted!`)
     this.socket = io(Configure.SERVER_URL)
-
+    this.socket.on('connected', this.onConnected)
     this.socket.on('SC_MESSAGE', this.SC_MESSAGE)
+  },
+  computed: {
+    ...mapGetters(['name', 'email']),
   },
   methods: {
     SC_MESSAGE(data) {
@@ -48,8 +51,9 @@ export default {
           break
         case 'SC_GAME_VICTORY':
           const { mail, name } = data.data
-
-          console.log(`有人得獎囉！得獎人: ${name}`)
+          console.log(`有人得獎囉！得獎人: ${name} / mail: ${mail}`)
+          this.$nuxt.$emit('Message:Show', `${name} 已經找到囉！你還在等什麼？`)
+          this.$nuxt.$emit('Root:CheckVictory', mail)
           break
         default:
           break
@@ -57,6 +61,24 @@ export default {
     },
     CS_MESSAGE(data) {
       this.socket.emit('CS_MESSAGE', data)
+    },
+    onConnected(data) {
+      const { gameStatus } = data
+      console.log(`[onConnected] / gameStatus: `, gameStatus)
+
+      switch (gameStatus) {
+        case 'Idle':
+          this.$nuxt.$emit('Popup:ShowIntroduction')
+          break
+        case 'Playing':
+          this.$nuxt.$emit('Popup:ShowMessage', {
+            title: `遊戲進行中`,
+            message: `請等待下一局開始`,
+          })
+          break
+        default:
+          break
+      }
     },
     onSendMsg() {
       this.socket.emit('chat message', 'Hi, paper')
@@ -87,8 +109,8 @@ export default {
         method: 'post',
         url: 'click',
         data: {
-          name: 'paper',
-          email: 'paper.hsiao@gmail.com',
+          name: self.name,
+          email: self.email,
           color,
         },
       })
@@ -111,6 +133,7 @@ export default {
           })
         })
     },
+
     onLoginHandler({ name, email }) {
       const self = this
 

@@ -3,20 +3,35 @@
     <div class="c-background">
       <div class="c-background__wrap"></div>
     </div>
-    <div class="l-panel">
-      <div class="c-panel">
-        <div class="c-panel__wrap duration-250">
-          <h2 class="c-title">{{ title.text }}</h2>
+    <div class="l-introduction-panel pointer-events-none">
+      <div class="c-introduction-panel" :class="_classIntroduction">
+        <div class="c-introduction-panel__wrap duration-250">
+          <h2 class="c-title">{{ introduction.title.text }}</h2>
           <div class="c-content">
             <div class="c-content__wrap">
-              <p class="o-text">{{ introduction.text }}</p>
+              <p class="o-text">{{ introduction.content.text }}</p>
             </div>
           </div>
-          <button class="c-button pointer" @click="closeBtn.onClickHandler">
+          <button
+            class="c-button pointer"
+            @click="introduction.closeBtn.onClickHandler"
+          >
             <div class="c-button__wrap duration-250">
-              <p class="o-text">{{ closeBtn.text }}</p>
+              <p class="o-text">{{ introduction.closeBtn.text }}</p>
             </div>
           </button>
+        </div>
+      </div>
+    </div>
+    <div class="l-message-panel pointer-events-none">
+      <div class="c-message-panel" :class="_classMessage">
+        <div class="c-message-panel__wrap duration-250">
+          <h2 class="c-title">{{ message.title.text }}</h2>
+          <div class="c-content">
+            <div class="c-content__wrap">
+              <p class="o-text">{{ message.content.text }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

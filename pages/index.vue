@@ -84,6 +84,7 @@ export default {
   },
   created() {
     this.$nuxt.$on('Root:ReadPlayerInfo', this.readPlayerInfoFromLocalStorage)
+    this.$nuxt.$on('Root:CheckVictory', this.checkVictory)
   },
   mounted() {
     this.updateWindowWidth()
@@ -110,6 +111,17 @@ export default {
       )
       this.$store.dispatch('player/updateName', { name: data.name })
       this.$store.dispatch('player/updateEmail', { email: data.email })
+    },
+    checkVictory(email) {
+      if (this.email === email) {
+        console.log(`中獎人是自己！`)
+        this.$nuxt.$emit('Popup:ShowMessage', {
+          title: `你找到囉`,
+          message: `請等一下其他眼睛比較不好的同事`,
+        })
+      } else {
+        console.log(`中獎人是別人啦！Q_____Q`)
+      }
     },
   },
 }

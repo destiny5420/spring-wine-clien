@@ -68,15 +68,19 @@ export default {
 
           break
         case 'SC_GAME_OVER':
-          console.log('遊戲結束囉！')
+          // 1. set parameter the game start of global in store.js
           this.$store.dispatch('status/updateGameStart', {
             key: false,
           })
 
+          // 2. show message
           this.$nuxt.$emit('Popup:ShowMessage', {
             title: `Round Over`,
             message: `等待主持人出下一題`,
           })
+
+          // 3. close topic ui
+          this.$nuxt.$emit('Topic:onClose')
           break
         default:
           break

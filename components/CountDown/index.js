@@ -74,19 +74,22 @@ export default {
           duration: self.countDown.animDuration,
 
           onComplete: () => {
-            self.onClose()
+            // 1. update the parameter of the game start of store.js
+            self.$store.dispatch('status/updateGameStart', {
+              key: true,
+            })
+
+            // 2. show topic UI
             self.$nuxt.$emit('Topic:onStart', this.onStart)
+
+            // 3. close panel
+            self.onClose()
           },
         }
       )
     },
     onClose() {
       this.open = false
-
-      // update the parameter of the game start of store.js
-      this.$store.dispatch('status/updateGameStart', {
-        key: true,
-      })
     },
   },
 }

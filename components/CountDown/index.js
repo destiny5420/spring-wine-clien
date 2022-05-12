@@ -20,6 +20,9 @@ export default {
   created() {
     this.$nuxt.$on('CountDown:onStart', this.onStart)
   },
+  mounted() {
+    this.onClose()
+  },
   methods: {
     onStart() {
       this.open = true

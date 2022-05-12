@@ -36,6 +36,7 @@ export default {
       this.onClosePopup()
       this.onShowMessage(data)
     })
+    this.$nuxt.$on('Popup:CloserPanel', this.onClosePopup)
   },
   computed: {
     _classRoot() {
@@ -60,7 +61,7 @@ export default {
   methods: {
     onSkipClick() {
       this.onClosePopup()
-      this.$nuxt.$emit('Message:Show', '關閉視窗')
+      this.$nuxt.$emit('API:GetGameStatus')
     },
     onShowIntroduction() {
       this.introduction.open = true

@@ -48,7 +48,7 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     '@nuxtjs/style-resources',
-    // '@nuxtjs/google-fonts',
+    '@nuxtjs/google-fonts',
     'nuxt-gsap-module',
   ],
 
@@ -60,6 +60,7 @@ export default {
 
   googleFonts: {
     families: {
+      'Oleo+Script+Swash+Caps': [400, 700],
       // 'Noto+Sans+TC': [400, 500, 700],
     },
   },

@@ -3,6 +3,9 @@
     <!-- <div class="l-loading">
       <Loading />
     </div> -->
+    <div class="l-count-down pointer-events-none">
+      <CountDown />
+    </div>
     <div class="l-popup pointer-events-none">
       <Popup />
     </div>
@@ -38,6 +41,7 @@
 import { mapMutations, mapGetters } from 'vuex'
 import Loading from '~/components/Loading/index.vue'
 import Popup from '~/components/Popup/index.vue'
+import CountDown from '~/components/CountDown/index.vue'
 import Login from '~/components/Login/index.vue'
 import Topic from '~/components/Topic/index.vue'
 import Message from '~/components/Message/index.vue'
@@ -50,6 +54,7 @@ export default {
   components: {
     Loading,
     Popup,
+    CountDown,
     Login,
     Topic,
     Message,
@@ -133,6 +138,13 @@ export default {
     @include size(100%);
     position: fixed;
     z-index: $z-loading;
+  }
+
+  .l-count-down {
+    @include size(100%);
+
+    position: fixed;
+    z-index: $z-countdown;
   }
 
   .l-popup {

@@ -15,6 +15,7 @@ export default {
   created() {
     this.$nuxt.$on('API:GameClick', this.onGameClick)
     this.$nuxt.$on('API:LoginHandler', this.onLoginHandler)
+    this.$nuxt.$on('API:GetGameStatus', this.onGetGameStatus)
 
     this.monogoAPI = this.$axios.create({
       baseURL: `${Configure.SERVER_URL}/mongo`,
@@ -40,10 +41,19 @@ export default {
         case 'SC_DashboardNewTopic':
           const { index } = data.data
 
+          // 1. change topic index
           this.$nuxt.$emit('Topic:ChangeIndex', index)
+
+          // 2. update the parameter of the game start of store.js
           this.$store.dispatch('status/updateGameStart', {
             key: true,
           })
+
+          // 3. show countdown panel
+          this.$nuxt.$emit('CountDown:onStart')
+
+          // 4. close popup
+          this.$nuxt.$emit('Popup:CloserPanel')
           break
         case 'Game:Notice':
           console.log(`遊戲發送通知囉`)
@@ -82,21 +92,49 @@ export default {
     },
     onConnected(data) {
       const { gameStatus } = data
-      console.log(`[onConnected] / gameStatus: `, gameStatus)
+      this.$nuxt.$emit('Popup:ShowIntroduction')
+      // console.log(`[onConnected] / gameStatus: `, gameStatus)
 
-      switch (gameStatus) {
-        case 'Idle':
-          this.$nuxt.$emit('Popup:ShowIntroduction')
-          break
-        case 'Playing':
-          this.$nuxt.$emit('Popup:ShowMessage', {
-            title: `遊戲進行中`,
-            message: `請等待下一局開始`,
-          })
-          break
-        default:
-          break
-      }
+      // switch (gameStatus) {
+      //   case 'Idle':
+      //     this.$nuxt.$emit('Popup:ShowIntroduction')
+      //     break
+      //   case 'Playing':
+      //     this.$nuxt.$emit('Popup:ShowMessage', {
+      //       title: `遊戲進行中`,
+      //       message: `請等待下一局開始`,
+      //     })
+      //     break
+      //   default:
+      //     break
+      // }
+    },
+    onGetGameStatus() {
+      const self = this
+
+      this.gameAPI({
+        method: 'get',
+        url: 'get-game-status',
+      }).then(function (response) {
+        const { data } = response
+
+        console.log(`data.gameStatus: `, data.gameStatus)
+        switch (data.gameStatus) {
+          case 'Idle':
+            self.$nuxt.$emit('Popup:ShowMessage', {
+              title: `遊戲即將開始`,
+              message: `請等待主持人出題`,
+            })
+            break
+          case 'Playing':
+            self.$nuxt.$emit('Popup:ShowMessage', {
+              title: `遊戲進行中`,
+              message: `請等待下一局開始`,
+            })
+            break
+          default:
+        }
+      })
     },
     /**
      * @desc API Methods below

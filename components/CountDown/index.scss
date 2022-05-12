@@ -1,0 +1,40 @@
+.c-count-down {
+  @include size(inherit);
+
+  .c-count-down__wrap {
+    @include size(inherit);
+
+    opacity: 0;
+  }
+
+  .l-background {
+    @include size(inherit);
+
+    position: relative;
+    z-index: 10;
+  }
+
+  .c-background {
+    @include size(inherit);
+
+    .o-body {
+      @include size(inherit);
+
+      background-color: rgba($color: $c-grayscale-000, $alpha: 50%);
+    }
+  }
+
+  .l-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 20;
+    transform: translate(-50%, -50%);
+  }
+
+  .c-number {
+    .o-text {
+      font-size: px2vw(100);
+    }
+  }
+}

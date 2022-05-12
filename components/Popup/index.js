@@ -38,6 +38,9 @@ export default {
     })
     this.$nuxt.$on('Popup:CloserPanel', this.onClosePopup)
   },
+  mounted() {
+    this.onClosePopup()
+  },
   computed: {
     _classRoot() {
       return {

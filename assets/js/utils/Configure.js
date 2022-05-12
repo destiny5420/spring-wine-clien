@@ -1,5 +1,5 @@
 export default {
-  SERVER_URL: `http://localhost:9000`,
+  SERVER_URL: process.env.SERVER_URL,
 
   // === Local Storage ===
   LOCAL_STORAGE_ROOT: 'spring-wine',

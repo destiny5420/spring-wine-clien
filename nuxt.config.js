@@ -50,6 +50,7 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/google-fonts',
     'nuxt-gsap-module',
+    ['@nuxtjs/dotenv', { filename: '.env.' + process.env.ENV }],
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

@@ -116,6 +116,8 @@ export default {
       )
       this.$store.dispatch('player/updateName', { name: data.name })
       this.$store.dispatch('player/updateEmail', { email: data.email })
+
+      this.$nuxt.$emit('Popup:ShowIntroduction')
     },
     checkVictory(email) {
       if (this.email === email) {

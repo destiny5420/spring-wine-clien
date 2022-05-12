@@ -95,7 +95,7 @@ export default {
     },
     onConnected(data) {
       const { gameStatus } = data
-      this.$nuxt.$emit('Popup:ShowIntroduction')
+
       // console.log(`[onConnected] / gameStatus: `, gameStatus)
 
       // switch (gameStatus) {
@@ -170,22 +170,6 @@ export default {
         })
         .catch(function (err) {
           console.error(`[onLoginHandler] / err log: ${err}`)
-        })
-    },
-    onRegister() {
-      this.monogoAPI({
-        method: 'post',
-        url: 'register',
-        data: {
-          name: 'paper',
-          email: 'paper.hsiao@gmail.com',
-        },
-      })
-        .then(function (response) {
-          console.error(`[onRegister] / response: ${response}`)
-        })
-        .catch((err) => {
-          console.error(`[onRegister] / err log: ${err}`)
         })
     },
     onGameClick(color) {

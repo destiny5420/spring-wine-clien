@@ -44,15 +44,10 @@ export default {
           // 1. change topic index
           this.$nuxt.$emit('Topic:ChangeIndex', index)
 
-          // 2. update the parameter of the game start of store.js
-          this.$store.dispatch('status/updateGameStart', {
-            key: true,
-          })
-
-          // 3. show countdown panel
+          // 2. show countdown panel
           this.$nuxt.$emit('CountDown:onStart')
 
-          // 4. close popup
+          // 3. close popup
           this.$nuxt.$emit('Popup:CloserPanel')
           break
         case 'Game:Notice':

@@ -75,11 +75,15 @@ export default {
           },
         }
       )
-
-      console.log(`onCountDownDone`)
     },
     onClose() {
       this.open = false
+      this.$nuxt.$emit('Topic:onStart', this.onStart)
+
+      // update the parameter of the game start of store.js
+      this.$store.dispatch('status/updateGameStart', {
+        key: true,
+      })
     },
   },
 }

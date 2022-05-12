@@ -1,20 +1,22 @@
-<section class="c-topic">
-  <div class="c-topic__wrap relative">
-    <div class="c-inner"></div>
-    <div class="l-picture">
-      <div class="c-picture">
-        <div class="o-image relative">
-          <picture class="image-obj">
-            <source
-              media="(max-width: 640px)"
-              :srcset="getCharacterImage.imgUrl_m"
-            />
-            <img
-              :src="getCharacterImage.imgUrl"
-              :alt="getCharacterImage.pictureAlt"
-              class="w-full"
-            />
-          </picture>
+<section class="c-topic duration-250" :class="_classRoot">
+  <div ref="a-topic" class="a-topic">
+    <div class="c-topic__wrap relative">
+      <div class="c-inner"></div>
+      <div class="l-picture">
+        <div class="c-picture">
+          <div class="o-image relative">
+            <picture class="image-obj">
+              <source
+                media="(max-width: 640px)"
+                :srcset="getCharacterImage.imgUrl_m"
+              />
+              <img
+                :src="getCharacterImage.imgUrl"
+                :alt="getCharacterImage.pictureAlt"
+                class="w-full"
+              />
+            </picture>
+          </div>
         </div>
       </div>
     </div>

@@ -205,6 +205,13 @@ export default {
       })
         .then(function (response) {
           console.log(`[onGameClick] / response: `, response)
+
+          const { valid } = response.data
+
+          if (!valid) {
+            return
+          }
+
           const { answerCorrect } = response.data
 
           if (answerCorrect) {

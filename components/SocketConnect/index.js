@@ -82,6 +82,10 @@ export default {
           // 3. close topic ui
           this.$nuxt.$emit('Topic:onClose')
           break
+        case 'SC_ShowLeaderBoard':
+          const { leaderBoard } = data.data
+          console.log(`[SC_ShowLeaderBoard] / leaderboard: `, leaderBoard)
+          break
         default:
           break
       }

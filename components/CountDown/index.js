@@ -2,7 +2,7 @@ export default {
   name: 'cCountDown',
   data() {
     return {
-      open: true,
+      open: false,
       countDown: {
         animDuration: 1,
         defaultNumber: 3,
@@ -75,13 +75,13 @@ export default {
 
           onComplete: () => {
             self.onClose()
+            self.$nuxt.$emit('Topic:onStart', this.onStart)
           },
         }
       )
     },
     onClose() {
       this.open = false
-      this.$nuxt.$emit('Topic:onStart', this.onStart)
 
       // update the parameter of the game start of store.js
       this.$store.dispatch('status/updateGameStart', {

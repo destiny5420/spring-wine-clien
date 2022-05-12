@@ -28,6 +28,9 @@ export default {
       ],
     }
   },
+  mounted() {
+    this.onClose()
+  },
   computed: {
     _classRoot() {
       return {

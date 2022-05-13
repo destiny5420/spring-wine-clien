@@ -21,7 +21,7 @@
     <div class="l-socket-connect">
       <SocketConnect />
     </div>
-    <div class="l-game">
+    <div class="l-game user-none">
       <Game
         :img-origin="game.imgOrigin"
         :img-map="game.imgMap"

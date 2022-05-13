@@ -2,16 +2,8 @@
   <div>
     <img ref="imgShow" class="showImg" :src="imgOrigin" />
     <img ref="imgMap" class="mapImg" :src="imgMap" />
-    <canvas
-      ref="canvasShow"
-      class="c-canvasShow"
-      style="touch-action: none"
-    ></canvas>
-    <canvas
-      ref="canvasMap"
-      class="c-canvasMap"
-      style="touch-action: none"
-    ></canvas>
+    <canvas ref="canvasShow" class="c-canvas-game c-canvasShow"></canvas>
+    <canvas ref="canvasMap" class="c-canvas-game c-canvasMap"></canvas>
   </div>
 </template>
 <script>

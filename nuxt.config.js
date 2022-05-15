@@ -61,8 +61,8 @@ export default {
 
   googleFonts: {
     families: {
-      'Oleo+Script+Swash+Caps': [400, 700],
-      // 'Noto+Sans+TC': [400, 500, 700],
+      'Oleo+Script': [400, 700],
+      'Noto+Sans+TC': [400, 500, 700],
     },
   },
 

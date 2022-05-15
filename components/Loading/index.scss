@@ -1,21 +1,148 @@
 .c-loading {
   @include size(inherit);
 
+  &.is-hidden {
+    opacity: 0;
+  }
+
   .c-loading__wrap {
     @include flex();
     @include size(inherit);
 
-    background-color: $c-blue-349;
+    background-color: $c-grayscale-fff;
   }
 
-  .c-battery {
-    .c-battery__wrap {
-      .o-image {
-        @include image-inner(94, 171);
+  .l-start {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+  }
 
-        transform: rotateZ(180deg);
-        width: 94px;
+  .c-start {
+    opacity: 0;
+    pointer-events: none;
+
+    &.is-active {
+      opacity: 1;
+    }
+
+    .c-start__wrap {
+      padding: clamp(0px, px2vw(10), 10px);
+    }
+
+    .o-text {
+      font-size: clamp(0px, px2vw(22), 22px);
+      color: $c-grayscale-757;
+      line-height: clamp(0px, px2vw(22), 22px);
+      letter-spacing: clamp(0px, px2vw(1.04), 1.04px);
+    }
+
+    &:hover {
+      .o-text {
+        color: lighten($color: $c-grayscale-757, $amount: 30);
       }
+    }
+  }
+
+  .l-start-word {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 20;
+    transform: translate(-50%, -50%);
+  }
+
+  .c-start-word {
+    opacity: 0;
+
+    &.is-active {
+      opacity: 1;
+    }
+
+    .o-text {
+      font-size: clamp(0px, px2vw(22), 22px);
+      color: $c-grayscale-757;
+    }
+  }
+
+  .l-anim-01,
+  .l-anim-02,
+  .l-anim-03,
+  .l-anim-04,
+  .l-anim-05 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+  }
+
+  .c-anim-01,
+  .c-anim-02,
+  .c-anim-03,
+  .c-anim-04,
+  .c-anim-05 {
+    .a-anim {
+      opacity: 0;
+      transition-duration: 0.5s;
+
+      &.is-active {
+        transition-duration: 1.5s;
+        opacity: 1;
+        transform: translateX(0) translateY(0) scale(1);
+      }
+    }
+
+    .o-image {
+      @include image-inner(1920, 1080);
+
+      width: clamp(0px, px2vw(500), 500px);
+    }
+  }
+
+  .c-anim-05 {
+    .a-anim {
+      &.is-active {
+        transition-duration: 5s;
+        opacity: 1;
+        transform: translateX(0) translateY(0) scale(1);
+      }
+    }
+
+    .o-image {
+      width: clamp(0px, px2vw(800), 800px);
+    }
+  }
+
+  .c-anim-01 {
+    .a-anim {
+      transform: translateX(-20%);
+    }
+  }
+
+  .c-anim-02 {
+    .a-anim {
+      transform: translateX(10%);
+    }
+  }
+
+  .c-anim-03 {
+    .a-anim {
+      transform: translateX(10%);
+    }
+  }
+
+  .c-anim-04 {
+    .a-anim {
+      transform: translateY(-10%);
+    }
+  }
+
+  .c-anim-05 {
+    .a-anim {
+      transform: scale(1.1);
     }
   }
 }

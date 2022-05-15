@@ -1,8 +1,8 @@
 <template>
   <div class="c-container">
-    <!-- <div class="l-loading">
+    <div class="l-loading pointer-events-none">
       <Loading />
-    </div> -->
+    </div>
     <div class="l-count-down pointer-events-none">
       <CountDown />
     </div>
@@ -108,6 +108,7 @@ export default {
       } else {
         this.readPlayerInfoFromLocalStorage()
         this.$nuxt.$emit('Login:Close')
+        this.$nuxt.$emit('Loading:CloseRoot')
       }
     },
     readPlayerInfoFromLocalStorage() {

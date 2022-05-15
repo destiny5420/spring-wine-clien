@@ -1,36 +1,42 @@
-<section class="c-loading">
-  <div class="c-loading__wrap">
-    <div class="c-battery">
-      <div class="c-battery__wrap">
-        <div class="o-image relative">
-          <div class="image-obj">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 94.12 171.94">
-              <defs>
-                <style>
-                  .cls-1 {
-                    fill: #fff;
-                  }
-                  .cls-2 {
-                    fill: #8aff3e;
-                  }
-                </style>
-              </defs>
-              <g id="Layer_2" data-name="Layer 2">
-                <g id="Layer_2-2" data-name="Layer 2">
-                  <rect class="cls-1" width="94.12" height="160.32" />
-                  <path
-                    d="M28.77,160.32v11.62H65.12V160.32h29V0H0V160.32ZM8,8H86.12V152.32H8Z"
-                  />
-                  <rect
-                    class="cls-2"
-                    x="13.82"
-                    y="13.8"
-                    width="66"
-                    height="132.79"
-                  />
-                </g>
-              </g>
-            </svg>
+<section
+  class="c-loading pointer-events-none duration-1000"
+  :class="_classRoot"
+>
+  <div class="c-loading__wrap relative">
+    <div class="l-start pointer-events-none">
+      <button
+        class="c-start pointer duration-500"
+        :class="_classButtonStart"
+        @click="onStartButtonClick"
+      >
+        <div class="c-start__wrap">
+          <div class="o-text f-os duration-250">START</div>
+        </div>
+      </button>
+    </div>
+    <div class="l-start-word pointer-events-none">
+      <div class="c-start-word duration-1000" :class="_classStartWord">
+        <div class="c-start-word__wrap">
+          <p ref="start-word" class="o-text f-noto">{{ startWord.text }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      v-for="(item, index) in anims"
+      :key="item.alt"
+      :class="`l-anim-0${index+1}`"
+      class="pointer-events-none"
+    >
+      <div :class="`c-anim-0${index+1}`">
+        <div class="a-anim" :class="_classAnim(index)">
+          <div class="c-anim__wrap">
+            <div class="o-image relative">
+              <picture class="image-obj">
+                <source media="(max-width: 640px)" :srcset="item.imgUrl_m" />
+                <img :src="item.imgUrl" :alt="item.alt" class="w-full" />
+              </picture>
+            </div>
           </div>
         </div>
       </div>

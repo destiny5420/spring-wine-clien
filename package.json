@@ -24,6 +24,7 @@
     "nuxt-gsap-module": "^1.6.0",
     "socket.io-client": "^4.5.0",
     "swiper": "6.7.5",
+    "typewriter-effect": "^2.18.2",
     "vue": "^2.6.14",
     "vue-awesome-swiper": "^4.1.1",
     "vue-server-renderer": "^2.6.14",

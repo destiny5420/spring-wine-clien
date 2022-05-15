@@ -50,9 +50,6 @@ export default {
           // 3. close popup
           this.$nuxt.$emit('Popup:CloserPanel')
           break
-        case 'Game:Notice':
-          console.log(`遊戲發送通知囉`)
-          break
         case 'SC_GAME_VICTORY':
           const { mail, name, gameStatus } = data.data
           console.log(`有人得獎囉！得獎人: ${name} / mail: ${mail}`)
@@ -85,6 +82,13 @@ export default {
         case 'SC_ShowLeaderBoard':
           const { leaderBoard } = data.data
           console.log(`[SC_ShowLeaderBoard] / leaderboard: `, leaderBoard)
+          break
+        case 'SC_Animate':
+          const animIndex = data.data.index
+          this.$nuxt.$emit('Loading:ShowAnimPic', animIndex)
+          break
+        case 'SC_AnimateClose':
+          this.$nuxt.$emit('Loading:Close')
           break
         default:
           break

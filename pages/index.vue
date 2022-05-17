@@ -30,7 +30,7 @@
         :click-color.sync="game.clickColor"
       />
     </div>
-    <div ref="testColorDiv" class="testColor">
+    <div v-if="picker.show" ref="testColorDiv" class="testColor">
       <div class="dir">{{ winfowGameDir }}</div>
       <div ref="color" class="color"></div>
     </div>
@@ -62,6 +62,9 @@ export default {
   },
   data() {
     return {
+      picker: {
+        show: false,
+      },
       game: {
         imgOrigin: require('~/pages/imgs/picture-origin.jpg'),
         imgMap: require('~/pages/imgs/picture-map.jpg'),
@@ -83,8 +86,10 @@ export default {
           )}`
         : ''
 
-      this.$refs.color.textContent = color
-      this.$refs.testColorDiv.style.backgroundColor = color
+      if (this.picker.show) {
+        this.$refs.color.textContent = color
+        this.$refs.testColorDiv.style.backgroundColor = color
+      }
     },
   },
   created() {
@@ -92,6 +97,7 @@ export default {
     this.$nuxt.$on('Root:CheckVictory', this.checkVictory)
   },
   mounted() {
+    this.picker.show = process.env.COLOR_PICKER === 'true'
     this.updateWindowWidth()
     window.addEventListener('resize', this.updateWindowWidth)
     this.checkLogin()

@@ -58,7 +58,6 @@ export default {
       self.showAnimPic(pictureIndex)
     })
     this.$nuxt.$on('Loading:Close', () => {
-      console.log(`Loading:Close`)
       this.onCloseButton()
       this.onCloseStartWord()
       this.closeRoot()

@@ -88,6 +88,8 @@ export default {
         case 'SC_ShowLeaderBoard':
           const { leaderBoard } = data.data
           console.log(`[SC_ShowLeaderBoard] / leaderboard: `, leaderBoard)
+          this.$nuxt.$emit('Popup:CloserPanel')
+          this.$nuxt.$emit('LeaderBoard:onShow', leaderBoard.result)
           break
         case 'SC_Animate':
           const animIndex = data.data.index
@@ -121,7 +123,7 @@ export default {
       }).then(function (response) {
         const { data } = response
 
-        console.log(`data.gameStatus: `, data.gameStatus)
+        // console.log(`data.gameStatus: `, data.gameStatus)
         switch (data.gameStatus) {
           case 'Idle':
             self.$nuxt.$emit('Popup:ShowMessage', {
@@ -192,7 +194,7 @@ export default {
         },
       })
         .then(function (response) {
-          console.log(`[onGameClick] / response: `, response)
+          // console.log(`[onGameClick] / response: `, response)
 
           const { valid } = response.data
 

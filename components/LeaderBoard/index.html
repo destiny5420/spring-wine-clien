@@ -1,0 +1,32 @@
+<section class="c-leader-board relative duration-250" :class="_classRoot">
+  <div class="c-leader-board__wrap relative">
+    <div class="c-background">
+      <div class="c-background__wrap"></div>
+    </div>
+    <div class="l-list">
+      <div class="c-list">
+        <div class="c-list__wrap relative">
+          <div class="l-title">
+            <div class="c-title">
+              <h2 class="o-text f-os">LeaderBoard</h2>
+            </div>
+          </div>
+          <div class="c-player-container">
+            <div class="c-player-container__wrap">
+              <div class="c-player" v-for="item in list" :key="item.email">
+                <div class="c-player__wrap">
+                  <div class="c-name">
+                    <p class="o-text">{{ item.name }}</p>
+                  </div>
+                  <div class="c-score">
+                    <div class="o-text">{{ item.score }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

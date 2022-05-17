@@ -6,6 +6,9 @@
     <div class="l-count-down pointer-events-none">
       <CountDown />
     </div>
+    <div class="l-leader-board pointer-events-none">
+      <LeaderBoard />
+    </div>
     <div class="l-popup pointer-events-none">
       <Popup />
     </div>
@@ -42,6 +45,7 @@ import { mapMutations, mapGetters } from 'vuex'
 import Loading from '~/components/Loading/index.vue'
 import Popup from '~/components/Popup/index.vue'
 import CountDown from '~/components/CountDown/index.vue'
+import LeaderBoard from '~/components/LeaderBoard/index.vue'
 import Login from '~/components/Login/index.vue'
 import Topic from '~/components/Topic/index.vue'
 import Message from '~/components/Message/index.vue'
@@ -55,6 +59,7 @@ export default {
     Loading,
     Popup,
     CountDown,
+    LeaderBoard,
     Login,
     Topic,
     Message,
@@ -159,6 +164,16 @@ export default {
 
     position: fixed;
     z-index: $z-countdown;
+  }
+
+  .l-leader-board {
+    @include size(100%);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: $z-leader-board;
+    transform: translate(-50%, -50%);
   }
 
   .l-popup {

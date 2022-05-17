@@ -57,16 +57,17 @@ export default {
       self.onCloseStartWord()
       self.showAnimPic(pictureIndex)
     })
-    this.$nuxt.$on('Loading:Close', this.closeRoot)
+    this.$nuxt.$on('Loading:Close', () => {
+      console.log(`Loading:Close`)
+      this.onCloseButton()
+      this.onCloseStartWord()
+      this.closeRoot()
+    })
+    this.$nuxt.$on('Loading:Init', () => {
+      this.setup()
+    })
   },
-  mounted() {
-    const self = this
-    const gsap = self.$gsap
-
-    gsap.delayedCall(1, this.onShowStart)
-
-    this.setup()
-  },
+  mounted() {},
   computed: {
     _classRoot() {
       return {
@@ -94,6 +95,11 @@ export default {
   },
   methods: {
     setup() {
+      const self = this
+      const gsap = self.$gsap
+
+      gsap.delayedCall(1, this.onShowStart)
+
       const el = this.$refs['start-word']
       this.startWord.typewriter = new Typewriter(el, {
         delay: 100,

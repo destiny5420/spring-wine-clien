@@ -105,6 +105,8 @@ export default {
 
       if (isAnimateEnd) {
         this.$nuxt.$emit('Loading:Close')
+      } else {
+        this.$nuxt.$emit('Loading:Init')
       }
     },
     onGetGameStatus() {

@@ -29,7 +29,15 @@
         @include size(inherit);
         @include flex(center, center, column);
 
+        padding: 10px 20px;
         background-color: rgba($color: $c-grayscale-ddd, $alpha: 100%);
+        border-radius: 10px;
+
+        .o-text {
+          font-size: 16px;
+          line-height: 20px;
+          letter-spacing: 0.3px;
+        }
       }
     }
   }

@@ -126,8 +126,8 @@ export default {
 
         // 1. show message
         this.$nuxt.$emit('Popup:ShowMessage', {
-          title: `你找到囉`,
-          message: `請等一下其他眼睛比較不好的同事`,
+          title: `You find it!`,
+          message: `請等待其他殼殼們！`,
         })
 
         // 2. close topic ui

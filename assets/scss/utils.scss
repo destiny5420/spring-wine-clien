@@ -16,6 +16,10 @@
   overflow: hidden !important;
 }
 
+.touch-action-none {
+  touch-action: none;
+}
+
 .pointer {
   cursor: pointer;
 }

@@ -56,7 +56,10 @@ export default {
         case 'SC_GAME_VICTORY':
           const { mail, name, gameStatus } = data.data
           console.log(`有人得獎囉！得獎人: ${name} / mail: ${mail}`)
-          this.$nuxt.$emit('Message:Show', `${name} 已經找到囉！你還在等什麼？`)
+
+          if (this.email !== mail) {
+            this.$nuxt.$emit('Message:Show', `${name} 找到了！`)
+          }
 
           switch (gameStatus) {
             case 'Playing':

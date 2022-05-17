@@ -10,6 +10,8 @@
     .c-background {
       @include size(inherit);
 
+      touch-action: none;
+
       .c-background__wrap {
         @include size(inherit);
 
@@ -67,6 +69,7 @@
     }
 
     .l-message-panel {
+      touch-action: none;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -80,9 +83,10 @@
       .c-message-panel__wrap {
         @include flex(center, center, column);
 
-        gap: 10px;
         padding: 25px;
         background-color: $c-grayscale-ddd;
+        border-radius: 10px;
+        gap: 10px;
 
         .c-title {
           color: $c-grayscale-363;

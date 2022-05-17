@@ -56,6 +56,7 @@ export default {
     },
     _classMessage() {
       return {
+        'touch-action-none': this.message.open,
         'pointer-events-auto': this.message.open,
         'opacity-1': this.message.open,
       }

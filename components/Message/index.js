@@ -1,3 +1,5 @@
+import { Maths } from '@paperhsiao/formula'
+
 export default {
   name: 'cMessage',
   created() {
@@ -10,12 +12,23 @@ export default {
       msg: {
         text: ``,
       },
+      textLibrary: [
+        '你還在等什麼？',
+        '這樣可以嗎？',
+        '眼睛也太大了吧！',
+        '什麼我不相信！',
+        '他說他是神！',
+        '誰能比我強？',
+        '難道他開外掛？',
+      ],
     }
   },
   mounted() {},
   methods: {
     onShow(msg) {
-      this.msg.text = msg
+      const randomIndex = Maths.getRandomByInt(0, this.textLibrary.length - 1)
+      const text = this.textLibrary[randomIndex]
+      this.msg.text = `${msg}${text}`
       this.onPlayShowAnim()
     },
     onPlayShowAnim() {

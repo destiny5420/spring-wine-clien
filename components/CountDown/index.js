@@ -5,7 +5,7 @@ export default {
       open: false,
       countDown: {
         animDuration: 1,
-        defaultNumber: 3,
+        defaultNumber: 1,
         number: 0,
       },
     }
@@ -25,6 +25,10 @@ export default {
   },
   methods: {
     onStart() {
+      if (this.open) {
+        return
+      }
+
       this.open = true
       this.countDown.number = this.countDown.defaultNumber
       this.onCountDownAnim()

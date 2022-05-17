@@ -216,6 +216,9 @@ export default {
     left: 0;
     z-index: $z-game;
   }
+  .l-socket-connect {
+    position: fixed;
+  }
 
   .testColor {
     position: fixed;

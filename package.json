@@ -10,7 +10,8 @@
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:prettier",
     "lintfix": "prettier --write --list-different .",
-    "deploy": "aws s3 sync ./dist s3://spring-wine.stackergames.org --delete --profile paper-hsiao"
+    "deploy": "aws s3 sync ./dist s3://spring-wine.stackergames.org --delete --profile paper-hsiao",
+    "gd": "yarn generate && yarn deploy"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",

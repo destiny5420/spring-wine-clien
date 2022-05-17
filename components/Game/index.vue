@@ -52,6 +52,7 @@ export default {
       // ww 跟 wh
       numWindowOriginWidth: 0,
       numWindowOriginHeight: 0,
+      dpr: 0,
 
       // 圖片的數據
       numImgOriginWidth: 0,
@@ -133,11 +134,11 @@ export default {
       // init canvas size
       const canvasShow = this.$refs.canvasShow
       const canvasMap  = this.$refs.canvasMap
-      const picScale       = this.picScale
+      const picScale   = this.picScale
 
-      const numWindowOriginWidth = this.numWindowOriginWidth  = canvasShow.width  = canvasMap.width  = window.innerWidth
-      const numWindowOriginHeight = this.numWindowOriginHeight = canvasShow.height = canvasMap.height = window.innerHeight
-
+      const dpr = window.devicePixelRatio;
+      const numWindowOriginWidth = this.numWindowOriginWidth  = canvasShow.width  = canvasMap.width  = window.innerWidth * dpr
+      const numWindowOriginHeight = this.numWindowOriginHeight = canvasShow.height = canvasMap.height = window.innerHeight * dpr
 
       // init Img Compu Size
       let numDisplayPicWidth = 0;
@@ -164,6 +165,7 @@ export default {
       this.numDisplayPicWidth = numDisplayPicWidth
       this.numDisplayPicHeight = numDisplayPicHeight
       this.vec2ScreenOffset.set(0, 0)
+      this.dpr = dpr
 
     },
 
@@ -244,7 +246,7 @@ export default {
       const domImgMap = this.$refs.imgMap
 
       const vec2ScreenOffset = this.vec2ScreenOffset
-      const numFreeHeight = this.numFreeHeight
+
       const numDisplayPicWidth = this.numDisplayPicWidth
       const numDisplayPicHeight = this.numDisplayPicHeight
 
@@ -305,7 +307,10 @@ export default {
       window.addEventListener('mousedown', this.getPixel)
     },
     getPixel(ev) {
-      const data = this.ctxMapCanvas.getImageData(ev.x, ev.y, 1, 1).data
+      const dpr = this.dpr
+      const data = this.ctxMapCanvas.getImageData(ev.x * dpr, ev.y * dpr, 1, 1).data
+
+      console.log(dpr);
       this.$emit('update:click-color', data)
     },
   },

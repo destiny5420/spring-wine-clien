@@ -49,6 +49,9 @@ export default {
 
           // 3. close popup
           this.$nuxt.$emit('Popup:CloserPanel')
+
+          // 4. close topic
+          this.$nuxt.$emit('Topic:onClose')
           break
         case 'SC_GAME_VICTORY':
           const { mail, name, gameStatus } = data.data
@@ -98,23 +101,11 @@ export default {
       this.socket.emit('CS_MESSAGE', data)
     },
     onConnected(data) {
-      const { gameStatus } = data
+      const { isAnimateEnd } = data
 
-      // console.log(`[onConnected] / gameStatus: `, gameStatus)
-
-      // switch (gameStatus) {
-      //   case 'Idle':
-      //     this.$nuxt.$emit('Popup:ShowIntroduction')
-      //     break
-      //   case 'Playing':
-      //     this.$nuxt.$emit('Popup:ShowMessage', {
-      //       title: `遊戲進行中`,
-      //       message: `請等待下一局開始`,
-      //     })
-      //     break
-      //   default:
-      //     break
-      // }
+      if (isAnimateEnd) {
+        this.$nuxt.$emit('Loading:Close')
+      }
     },
     onGetGameStatus() {
       const self = this

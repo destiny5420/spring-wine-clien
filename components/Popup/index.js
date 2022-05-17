@@ -12,7 +12,7 @@ export default {
           text: `這是一款很好玩的遊戲這是一款很好玩的遊戲這是一款很好玩的遊戲這是一款很好玩的遊戲這是一款很好玩的遊戲這是一款很好玩的遊戲`,
         },
         closeBtn: {
-          text: `略過`,
+          text: `skip`,
           onClickHandler: this.onSkipClick,
         },
       },

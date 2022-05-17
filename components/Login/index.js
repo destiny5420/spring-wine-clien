@@ -3,8 +3,8 @@ export default {
   data() {
     return {
       open: false,
-      name: `paperhsiao`,
-      email: `paper.hsiao@gmail.com`,
+      name: ``,
+      email: ``,
     }
   },
   computed: {

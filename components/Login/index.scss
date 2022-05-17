@@ -28,6 +28,7 @@
       .c-panel__wrap {
         padding: 10px;
         background-color: rgba($color: $c-grayscale-ddd, $alpha: 100%);
+        border-radius: 10px;
       }
     }
 
@@ -39,11 +40,28 @@
       }
     }
 
+    .c-input {
+      .o-input {
+        padding: 10px;
+        width: 200px;
+        color: $c-grayscale-757;
+        border: 0 solid transparent;
+        border-radius: 8px;
+      }
+    }
+
     .c-login-btn {
       .c-login-btn__wrap {
         padding: 5px;
+        padding: 3px 10px;
         background-color: $c-green-129;
         border-radius: 6px;
+      }
+
+      &:hover {
+        .c-login-btn__wrap {
+          background-color: lighten($color: $c-green-129, $amount: 10);
+        }
       }
     }
   }

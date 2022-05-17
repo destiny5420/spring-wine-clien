@@ -31,9 +31,10 @@
       .c-introduction-panel__wrap {
         @include flex(center, center, column);
 
-        gap: 10px;
         padding: 25px;
         background-color: $c-grayscale-ddd;
+        border-radius: 10px;
+        gap: 10px;
 
         .c-title {
           color: $c-grayscale-363;

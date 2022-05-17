@@ -126,12 +126,20 @@ export default {
 
       // init canvas size
       const canvasShow = this.$refs.canvasShow
-      const canvasMap  = this.$refs.canvasMap
-      const picScale   = this.picScale
+      const canvasMap = this.$refs.canvasMap
+      const picScale = this.picScale
 
-      const dpr = window.devicePixelRatio;
-      const numWindowOriginWidth = this.numWindowOriginWidth  = canvasShow.width  = canvasMap.width  = window.innerWidth * dpr
-      const numWindowOriginHeight = this.numWindowOriginHeight = canvasShow.height = canvasMap.height = window.innerHeight * dpr
+      const dpr = window.devicePixelRatio
+      const numWindowOriginWidth =
+        (this.numWindowOriginWidth =
+        canvasShow.width =
+        canvasMap.width =
+          window.innerWidth * dpr)
+      const numWindowOriginHeight =
+        (this.numWindowOriginHeight =
+        canvasShow.height =
+        canvasMap.height =
+          window.innerHeight * dpr)
 
       // init Img Compu Size
       let numDisplayPicWidth = 0
@@ -159,7 +167,6 @@ export default {
       this.numDisplayPicHeight = numDisplayPicHeight
       this.vec2ScreenOffset.set(0, 0)
       this.dpr = dpr
-
     },
 
     initDrag() {
@@ -301,9 +308,14 @@ export default {
     },
     getPixel(ev) {
       const dpr = this.dpr
-      const data = this.ctxMapCanvas.getImageData(ev.x * dpr, ev.y * dpr, 1, 1).data
-
-      console.log(dpr);
+      const data = this.ctxMapCanvas.getImageData(
+        ev.x * dpr,
+        ev.y * dpr,
+        1,
+        1
+      ).data
+      this.sendClickEvent(data)
+      console.log(dpr)
       this.$emit('update:click-color', data)
     },
     sendClickEvent(colorData) {

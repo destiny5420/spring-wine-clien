@@ -55,7 +55,7 @@ export default {
           break
         case 'SC_GAME_VICTORY':
           const { mail, name, gameStatus } = data.data
-          console.log(`有人得獎囉！得獎人: ${name} / mail: ${mail}`)
+          // console.log(`有人得獎囉！得獎人: ${name} / mail: ${mail}`)
 
           if (this.email !== mail) {
             this.$nuxt.$emit('Message:Show', `${name} 找到了！`)
@@ -87,7 +87,7 @@ export default {
           break
         case 'SC_ShowLeaderBoard':
           const { leaderBoard } = data.data
-          console.log(`[SC_ShowLeaderBoard] / leaderboard: `, leaderBoard)
+          // console.log(`[SC_ShowLeaderBoard] / leaderboard: `, leaderBoard)
           this.$nuxt.$emit('Popup:CloserPanel')
           this.$nuxt.$emit('LeaderBoard:onShow', leaderBoard.result)
           break
@@ -157,7 +157,7 @@ export default {
       })
         .then(function (response) {
           const { data } = response
-          console.log(`[onLoginHandler] / data: `, data)
+          // console.log(`[onLoginHandler] / data: `, data)
 
           localStorage.setItem(
             Configure.LOCAL_STORAGE_ROOT,

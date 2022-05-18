@@ -9,7 +9,7 @@
     <div class="l-leader-board pointer-events-none">
       <LeaderBoard />
     </div>
-    <div class="l-popup pointer-events-none">
+    <div class="l-popup pointer-events-none user-none">
       <Popup />
     </div>
     <div class="l-login pointer-events-none">
@@ -133,7 +133,7 @@ export default {
     },
     checkVictory(email) {
       if (this.email === email) {
-        console.log(`中獎人是自己！`)
+        // console.log(`中獎人是自己！`)
 
         // 1. show message
         this.$nuxt.$emit('Popup:ShowMessage', {
@@ -144,7 +144,7 @@ export default {
         // 2. close topic ui
         this.$nuxt.$emit('Topic:onClose')
       } else {
-        console.log(`中獎人是別人啦！Q_____Q`)
+        // console.log(`中獎人是別人啦！Q_____Q`)
       }
     },
   },

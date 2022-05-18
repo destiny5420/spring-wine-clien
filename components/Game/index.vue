@@ -315,13 +315,9 @@ export default {
         1
       ).data
       this.sendClickEvent(data)
-      console.log(dpr)
       this.$emit('update:click-color', data)
     },
     sendClickEvent(colorData) {
-      console.log(
-        `this.gameStart: ${this.gameStart} / this.canTouch: ${this.canTouch}`
-      )
       if (!this.gameStart) {
         return
       }

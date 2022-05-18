@@ -4,22 +4,127 @@
       <div class="c-background__wrap"></div>
     </div>
     <div class="l-introduction-panel pointer-events-none">
-      <div class="c-introduction-panel" :class="_classIntroduction">
-        <div class="c-introduction-panel__wrap duration-250">
-          <h2 class="c-title">{{ introduction.title.text }}</h2>
-          <div class="c-content">
-            <div class="c-content__wrap">
-              <p class="o-text text-center">{{ introduction.content.text }}</p>
+      <div
+        class="c-introduction-panel duration-250"
+        :class="_classIntroduction"
+      >
+        <div class="c-introduction-panel__wrap relative">
+          <div class="c-background">
+            <div class="o-image relative">
+              <picture class="image-obj">
+                <source
+                  media="(max-width: 640px)"
+                  :srcset="introduction.background.imgUrl_m"
+                />
+                <img
+                  :src="introduction.background.imgUrl"
+                  :alt="introduction.background.alt"
+                  class="w-full"
+                />
+              </picture>
             </div>
           </div>
-          <button
-            class="c-button pointer"
-            @click="introduction.closeBtn.onClickHandler"
-          >
-            <div class="c-button__wrap duration-250">
-              <p class="o-text f-os">{{ introduction.closeBtn.text }}</p>
+          <div class="l-character">
+            <div class="c-character">
+              <div class="o-image relative">
+                <picture class="image-obj">
+                  <source
+                    media="(max-width: 640px)"
+                    :srcset="introduction.character.imgUrl_m"
+                  />
+                  <img
+                    :src="introduction.character.imgUrl"
+                    :alt="introduction.character.alt"
+                    class="w-full"
+                  />
+                </picture>
+              </div>
             </div>
-          </button>
+          </div>
+          <div class="l-title">
+            <div class="c-title">
+              <div class="o-image relative">
+                <picture class="image-obj">
+                  <source
+                    media="(max-width: 640px)"
+                    :srcset="introduction.title.imgUrl_m"
+                  />
+                  <img
+                    :src="introduction.title.imgUrl"
+                    :alt="introduction.title.alt"
+                    class="w-full"
+                  />
+                </picture>
+              </div>
+            </div>
+          </div>
+          <div class="l-btn-prev">
+            <button class="c-btn-prev pointer" @click="onIntroPrevClick">
+              <div class="a-btn duration-250">
+                <div class="o-image relative">
+                  <picture class="image-obj">
+                    <source
+                      media="(max-width: 640px)"
+                      :srcset="introduction.arrowBtn.imgUrl_m"
+                    />
+                    <img
+                      :src="introduction.arrowBtn.imgUrl"
+                      :alt="introduction.arrowBtn.alt"
+                      class="w-full"
+                    />
+                  </picture>
+                </div>
+              </div>
+            </button>
+          </div>
+          <div class="l-btn-next">
+            <button class="c-btn-next pointer" @click="onIntroNextClick">
+              <div class="a-btn duration-250">
+                <div class="o-image relative">
+                  <picture class="image-obj">
+                    <source
+                      media="(max-width: 640px)"
+                      :srcset="introduction.arrowBtn.imgUrl_m"
+                    />
+                    <img
+                      :src="introduction.arrowBtn.imgUrl"
+                      :alt="introduction.arrowBtn.alt"
+                      class="w-full"
+                    />
+                  </picture>
+                </div>
+              </div>
+            </button>
+          </div>
+          <div class="l-content">
+            <div class="c-content">
+              <div class="c-content__wrap">
+                <p class="o-text text-center">{{ getIntroContent }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="l-btn-skip">
+            <button
+              class="c-btn-skip pointer"
+              @click="introduction.closeBtn.onClickHandler"
+            >
+              <div class="a-btn duration-250">
+                <div class="o-image relative">
+                  <picture class="image-obj">
+                    <source
+                      media="(max-width: 640px)"
+                      :srcset="introduction.closeBtn.picture.imgUrl_m"
+                    />
+                    <img
+                      :src="introduction.closeBtn.picture.imgUrl"
+                      :alt="introduction.closeBtn.picture.alt"
+                      class="w-full"
+                    />
+                  </picture>
+                </div>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </div>

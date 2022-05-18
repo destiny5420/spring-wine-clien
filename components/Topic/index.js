@@ -291,6 +291,11 @@ export default {
           alt: `pic-character`,
         },
       ],
+      bg: {
+        imgUrl: require(`~/assets/images/topic/pic-bg-01.png`),
+        imgUrl_m: require(`~/assets/images/topic/pic-bg-01.png`),
+        alt: `pic-bg-01`,
+      },
     }
   },
   mounted() {

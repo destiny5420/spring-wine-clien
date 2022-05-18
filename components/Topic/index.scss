@@ -1,12 +1,9 @@
 .c-topic {
   .c-topic__wrap {
-    background-color: rgba($color: $c-grayscale-363, $alpha: 80%);
-    border-radius: 50%;
-
     .c-inner {
       @include image-inner(100, 100);
 
-      width: 100px;
+      width: clamp(0px, px2vw(100), 100px);
     }
 
     .l-picture {
@@ -16,6 +13,7 @@
       transform: translate(-50%, -50%);
       top: 50%;
       left: 50%;
+      z-index: 20;
     }
 
     .c-picture {
@@ -23,6 +21,22 @@
 
       .o-image {
         @include size(100%);
+      }
+    }
+
+    .l-background {
+      position: absolute;
+      top: 54%;
+      left: 58%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+
+    .c-background {
+      .o-image {
+        @include image-inner(292, 270);
+
+        width: clamp(0px, px2vw(130), 130px);
       }
     }
   }

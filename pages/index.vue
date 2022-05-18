@@ -198,8 +198,8 @@ export default {
 
   .l-topic {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: clamp(0px, px2vw(22), 22px);
+    left: clamp(0px, px2vw(22), 22px);
     z-index: $z-topic;
   }
 

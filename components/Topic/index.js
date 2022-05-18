@@ -140,6 +140,156 @@ export default {
           imgUrl_m: require(`~/assets/images/characters/character-25.png`),
           alt: `pic-character`,
         },
+        {
+          imgUrl: require(`~/assets/images/characters/character-26.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-26.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-27.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-27.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-28.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-28.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-29.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-29.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-30.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-30.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-31.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-31.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-32.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-32.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-33.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-33.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-34.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-34.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-35.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-35.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-36.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-36.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-37.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-37.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-38.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-38.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-39.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-39.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-40.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-40.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-41.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-41.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-42.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-42.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-43.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-43.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-44.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-44.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-45.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-45.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-46.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-46.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-47.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-47.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-48.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-48.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-49.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-49.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-50.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-50.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-51.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-51.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-52.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-52.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-53.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-53.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-54.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-54.png`),
+          alt: `pic-character`,
+        },
+        {
+          imgUrl: require(`~/assets/images/characters/character-55.png`),
+          imgUrl_m: require(`~/assets/images/characters/character-55.png`),
+          alt: `pic-character`,
+        },
       ],
     }
   },

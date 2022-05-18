@@ -73,7 +73,7 @@ export default {
       game: {
         imgOrigin: require('~/pages/imgs/picture-origin.jpg'),
         imgMap: require('~/pages/imgs/picture-map.jpg'),
-        picScale: 1.7,
+        picScale: 2,
         clickColor: null,
         bgColor: 'skyblue',
       },

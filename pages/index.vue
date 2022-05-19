@@ -7,6 +7,7 @@
         :pic-scale="game.picScale"
         :bg-color="game.bgColor"
         :click-color.sync="game.clickColor"
+        :drag-speed="game.dragSpeed"
       />
     </div>
     <div v-if="picker.show" ref="testColorDiv" class="testColor">
@@ -54,6 +55,7 @@ export default {
         picScale: 2,
         clickColor: null,
         bgColor: 'skyblue',
+        dragSpeed: 1
       },
     }
   },

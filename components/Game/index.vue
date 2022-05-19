@@ -35,6 +35,11 @@ export default {
       type: String,
       default: '',
     },
+
+    dragSpeed: {
+      type: Number,
+      default: 1
+    }
   },
   data() {
     return {
@@ -200,6 +205,7 @@ export default {
       const y = ev.y || ev.clientY
 
       const dpr = this.dpr
+      const dragSpeed = this.dragSpeed
       const numFreeWidth = this.numFreeWidth
       const numFreeHeight = this.numFreeHeight
       const strGameDir = this.winfowGameDir
@@ -209,8 +215,8 @@ export default {
         vec2MouseMove.set(vec2MouseMove.y, -vec2MouseMove.x)
       }
 
-      vec2MouseMove.x *= dpr
-      vec2MouseMove.y *= dpr
+      vec2MouseMove.x *= dpr * dragSpeed
+      vec2MouseMove.y *= dpr * dragSpeed
 
       const vec2Offset = this.vec2ScreenOffset.sub(vec2MouseMove)
 

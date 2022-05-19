@@ -45,7 +45,6 @@ export default {
     onLogin(e) {
       e.preventDefault()
 
-      console.log(`onLogin / name: ${this.name} / email: ${this.email}`)
       if (!this.name) {
         return
       }

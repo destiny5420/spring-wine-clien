@@ -105,13 +105,15 @@ export default {
       this.socket.emit('CS_MESSAGE', data)
     },
     onConnected(data) {
-      const { isAnimateEnd } = data
+      const { isAnimateEnd, localStorageIndex } = data
 
       if (isAnimateEnd) {
         this.$nuxt.$emit('Loading:Close')
       } else {
         this.$nuxt.$emit('Loading:Init')
       }
+
+      this.$nuxt.$emit('Root:CheckLoginData', localStorageIndex)
     },
     onGetGameStatus() {
       const self = this
@@ -161,6 +163,7 @@ export default {
             JSON.stringify({
               name: data.name,
               email: data.email,
+              localStorageIndex: data.localStorageIndex,
             })
           )
 
@@ -205,6 +208,11 @@ export default {
             self.$store.dispatch('status/updateGameStart', {
               key: false,
             })
+          }
+
+          const { success, result } = response.data
+          if (!success) {
+            console.error(result)
           }
         })
         .catch(function (err) {

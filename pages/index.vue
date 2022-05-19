@@ -100,21 +100,44 @@ export default {
   created() {
     this.$nuxt.$on('Root:ReadPlayerInfo', this.readPlayerInfoFromLocalStorage)
     this.$nuxt.$on('Root:CheckVictory', this.checkVictory)
+    this.$nuxt.$on('Root:CheckLoginData', this.checkLogin)
   },
   mounted() {
     this.picker.show = process.env.COLOR_PICKER === 'true'
     this.updateWindowWidth()
     window.addEventListener('resize', this.updateWindowWidth)
-    this.checkLogin()
   },
   methods: {
     ...mapMutations({
       updateWindowWidth: 'windowInfo/UPDATE_WIDTH',
     }),
-    checkLogin() {
-      const hasData = localStorage.getItem(Configure.LOCAL_STORAGE_ROOT)
+    checkLogin(serverLocalStorageIndex) {
+      // localStorage.setItem(
+      //   Configure.LOCAL_STORAGE_ROOT,
+      //   JSON.stringify({
+      //     name: 'test@gmail.com',
+      //     email: 'test@gmail.com',
+      //   })
+      // )
 
-      if (!hasData) {
+      // return
+
+      // eslint-disable-next-line no-unreachable
+      const storageData = JSON.parse(
+        localStorage.getItem(Configure.LOCAL_STORAGE_ROOT)
+      )
+
+      /**
+       * 如果沒有資料
+       */
+      if (!storageData) {
+        this.$nuxt.$emit('Login:Open')
+      } else if (
+        storageData.localStorageIndex === undefined ||
+        storageData.localStorageIndex === null ||
+        storageData.localStorageIndex !== serverLocalStorageIndex
+      ) {
+        localStorage.removeItem('spring-wine')
         this.$nuxt.$emit('Login:Open')
       } else {
         this.readPlayerInfoFromLocalStorage()

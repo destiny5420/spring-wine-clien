@@ -91,6 +91,11 @@ export default {
       },
       message: {
         open: false,
+        background: {
+          imgUrl: require(`~/assets/images/popup/pic-message-panel-01.png`),
+          imgUrl_m: require(`~/assets/images/popup/pic-message-panel-01.png`),
+          alt: `pic-message-panel-01`,
+        },
         title: {
           text: ``,
         },

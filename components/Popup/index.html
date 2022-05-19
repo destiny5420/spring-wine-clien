@@ -390,11 +390,27 @@
     </div>
     <div class="l-message-panel pointer-events-none">
       <div class="c-message-panel" :class="_classMessage">
-        <div class="c-message-panel__wrap duration-250">
-          <h2 class="c-title">{{ message.title.text }}</h2>
-          <div class="c-content">
-            <div class="c-content__wrap">
-              <p class="o-text">{{ message.content.text }}</p>
+        <div class="c-message-panel__wrap relative duration-250">
+          <div class="c-background">
+            <div class="o-image relative">
+              <picture class="image-obj">
+                <source
+                  media="(max-width: 640px)"
+                  :srcset="message.background.imgUrl_m"
+                />
+                <img
+                  :src="message.background.imgUrl"
+                  :alt="message.background.alt"
+                  class="w-full"
+                />
+              </picture>
+            </div>
+          </div>
+          <div class="l-content">
+            <div class="c-content">
+              <p class="o-text font-medium f-noto">
+                {{ message.content.text }}
+              </p>
             </div>
           </div>
         </div>

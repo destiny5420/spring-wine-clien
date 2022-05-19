@@ -17,7 +17,7 @@
   .c-background__wrap {
     @include size(inherit);
 
-    background-color: rgba($color: $c-grayscale-363, $alpha: 50%);
+    background-color: rgba($color: $c-blue-00a, $alpha: 90%);
   }
 }
 
@@ -404,49 +404,34 @@
 .l-message-panel {
   touch-action: none;
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .c-message-panel {
-  pointer-events: none;
   opacity: 0;
 
-  .c-message-panel__wrap {
-    @include flex(center, center, column);
+  .c-background {
+    .o-image {
+      @include image-inner(772, 426);
 
-    padding: 25px;
-    background-color: $c-grayscale-ddd;
-    border-radius: 10px;
-    gap: 10px;
-
-    .c-title {
-      color: $c-grayscale-363;
+      width: clamp(0px, px2vw(386), 386px);
     }
+  }
 
-    .c-content {
-      .c-content__wrap {
-        max-width: 320px;
+  .l-content {
+    position: absolute;
+    top: clamp(0px, px2vw(57), 57px);
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%);
+  }
 
-        .o-text {
-          font-size: 14px;
-          line-height: 1.25;
-          letter-spacing: 1.08px;
-        }
-      }
-    }
-
-    .c-button {
-      .c-button__wrap {
-        padding: 5px 10px;
-        background-color: $c-green-18a;
-        border-radius: 5px;
-
-        &:hover {
-          background-color: darken($color: $c-green-18a, $amount: 10);
-        }
-      }
+  .c-content {
+    .o-text {
+      font-size: clamp(0px, px2vw(20), 20px);
+      color: #8e8e93;
     }
   }
 }

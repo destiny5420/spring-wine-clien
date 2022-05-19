@@ -28,15 +28,15 @@
 
 .c-panel {
   .c-panel__wrap {
-    @include size(clamp(0px, px2vw(560), 560px), clamp(0px, px2vw(455), 455px));
+    @include size(clamp(1px, px2vw(560), 560px), clamp(1px, px2vw(455), 455px));
 
     background-color: $c-grayscale-fcf;
-    border-radius: clamp(0px, px2vw(21), 21px);
-    box-shadow: inset 0 clamp(-20px, px2vw(-20), 0px)
+    border-radius: clamp(1px, px2vw(21), 21px);
+    box-shadow: inset 0 clamp(-20px, px2vw(-20), 1px)
       rgba($color: #00a5f0, $alpha: 20%);
 
     &:hover {
-      box-shadow: inset 0 clamp(-20px, px2vw(-20), 0px)
+      box-shadow: inset 0 clamp(-20px, px2vw(-20), 1px)
         rgba($color: #00a5f0, $alpha: 20%);
     }
   }
@@ -53,7 +53,7 @@
     .o-image {
       @include image-inner(270, 132);
 
-      width: clamp(0px, px2vw(135), 135px);
+      width: clamp(1px, px2vw(135), 135px);
     }
   }
 
@@ -69,14 +69,14 @@
     .o-image {
       @include image-inner(162, 97);
 
-      width: clamp(0px, px2vw(162), 162px);
+      width: clamp(1px, px2vw(162), 162px);
     }
   }
 }
 
 .l-form {
   position: absolute;
-  bottom: clamp(0px, px2vw(72), 72px);
+  bottom: clamp(1px, px2vw(72), 72px);
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -86,19 +86,19 @@
   .c-form__wrap {
     @include flex(flex-start, center, column);
 
-    gap: clamp(0px, px2vw(21), 21px);
+    gap: clamp(1px, px2vw(21), 21px);
   }
 }
 
 .c-input {
   .o-input {
-    padding: clamp(0px, px2vw(12), 12px) clamp(0px, px2vw(17), 17px);
-    width: clamp(0px, px2vw(383), 383px);
-    font-size: clamp(0px, px2vw(20), 20px);
+    padding: clamp(1px, px2vw(12), 12px) clamp(1px, px2vw(17), 17px);
+    width: clamp(1px, px2vw(383), 383px);
+    font-size: clamp(1px, px2vw(20), 20px);
     color: rgba($color: $c-grayscale-757, $alpha: 50%);
     background-color: $c-grayscale-f6f;
     border: 0 solid transparent;
-    border-radius: clamp(0px, px2vw(7), 7px);
+    border-radius: clamp(1px, px2vw(7), 7px);
 
     &::placeholder {
       color: rgba($color: $c-grayscale-757, $alpha: 50%);
@@ -107,14 +107,14 @@
     &:focus {
       outline-style: solid;
       outline-color: $c-blue-00a;
-      outline-width: clamp(0px, px2vw(4), 4px);
+      outline-width: clamp(1px, px2vw(4), 4px);
     }
   }
 }
 
 .l-text {
   position: absolute;
-  top: clamp(0px, px2vw(18), 18px);
+  top: clamp(1px, px2vw(18), 18px);
   left: 50%;
   transform: translateX(-50%);
 }
@@ -123,7 +123,7 @@
   .o-image {
     @include image-inner(103, 51);
 
-    width: clamp(0px, px2vw(54), 54px);
+    width: clamp(1px, px2vw(54), 54px);
   }
 }
 
@@ -134,20 +134,20 @@
 .c-login-btn {
   &:hover {
     .a-btn {
-      transform: translateY(clamp(0px, px2vw(5), 5px));
+      transform: translateY(clamp(1px, px2vw(5), 5px));
     }
   }
 
   .c-login-btn__wrap {
     @include flex();
-    @include size(clamp(0px, px2vw(155), 155px), clamp(0px, px2vw(66), 66px));
+    @include size(clamp(1px, px2vw(155), 155px), clamp(1px, px2vw(66), 66px));
 
     background: linear-gradient(0deg, #31bcfc 0%, rgb(0 133 255 / 100%) 100%);
-    border-radius: clamp(0px, px2vw(13), 13px);
+    border-radius: clamp(1px, px2vw(13), 13px);
     filter: drop-shadow(
-      0 clamp(0px, px2vw(3), 3px) clamp(0px, px2vw(4), 4px) rgba(#00afff, 0.5)
+      0 clamp(1px, px2vw(3), 3px) clamp(1px, px2vw(4), 4px) rgba(#00afff, 0.5)
     );
-    box-shadow: inset 0 clamp(-6px, px2vw(-6), 0px)
+    box-shadow: inset 0 clamp(-6px, px2vw(-6), 1px)
       rgba($color: #009ee5, $alpha: 100%);
   }
 

@@ -3,7 +3,7 @@
     .c-inner {
       @include image-inner(100, 100);
 
-      width: clamp(0px, px2vw(100), 100px);
+      width: clamp(1px, px2vw(100), 100px);
     }
 
     .l-picture {
@@ -36,7 +36,7 @@
       .o-image {
         @include image-inner(292, 270);
 
-        width: clamp(0px, px2vw(130), 130px);
+        width: clamp(1px, px2vw(130), 130px);
       }
     }
   }

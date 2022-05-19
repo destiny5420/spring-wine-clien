@@ -39,14 +39,14 @@
     .o-image {
       @include image-inner(1742, 930);
 
-      width: clamp(0px, px2vw(500), 500px);
+      width: clamp(1px, px2vw(500), 500px);
     }
   }
 
   .l-character {
     position: absolute;
-    top: clamp(-55px, px2vw(-55), 0px);
-    left: clamp(0px, px2vw(245), 245px);
+    top: clamp(-55px, px2vw(-55), 1px);
+    left: clamp(1px, px2vw(245), 245px);
     z-index: 10;
   }
 
@@ -54,14 +54,14 @@
     .o-image {
       @include image-inner(391, 286);
 
-      width: clamp(0px, px2vw(225), 225px);
+      width: clamp(1px, px2vw(225), 225px);
     }
   }
 
   .l-title {
     position: absolute;
-    top: clamp(0px, px2vw(10), 10px);
-    left: clamp(0px, px2vw(40), 40px);
+    top: clamp(1px, px2vw(10), 10px);
+    left: clamp(1px, px2vw(40), 40px);
     z-index: 10;
   }
 
@@ -69,14 +69,14 @@
     .o-image {
       @include image-inner(424, 230);
 
-      width: clamp(0px, px2vw(120), 120px);
+      width: clamp(1px, px2vw(120), 120px);
     }
   }
 
   .l-btn-prev {
     position: absolute;
-    bottom: clamp(0px, px2vw(88), 88px);
-    left: clamp(0px, px2vw(25), 25px);
+    bottom: clamp(1px, px2vw(88), 88px);
+    left: clamp(1px, px2vw(25), 25px);
     z-index: 10;
   }
 
@@ -90,15 +90,15 @@
     .o-image {
       @include image-inner(130, 132);
 
-      width: clamp(0px, px2vw(42), 42px);
+      width: clamp(1px, px2vw(42), 42px);
       filter: drop-shadow(0 3px 2px #0097ee66);
     }
   }
 
   .l-btn-next {
     position: absolute;
-    right: clamp(0px, px2vw(25), 25px);
-    bottom: clamp(0px, px2vw(88), 88px);
+    right: clamp(1px, px2vw(25), 25px);
+    bottom: clamp(1px, px2vw(88), 88px);
     z-index: 10;
   }
 
@@ -113,17 +113,17 @@
       @include image-inner(130, 132);
 
       transform: scaleX(-1);
-      width: clamp(0px, px2vw(42), 42px);
+      width: clamp(1px, px2vw(42), 42px);
       filter: drop-shadow(0 3px 2px #0097ee66);
     }
   }
 
   .l-content {
     position: absolute;
-    bottom: clamp(0px, px2vw(113), 113px);
+    bottom: clamp(1px, px2vw(113), 113px);
     left: 50%;
     z-index: 10;
-    width: clamp(0px, px2vw(300), 300px);
+    width: clamp(1px, px2vw(300), 300px);
     transform: translate(-50%, 50%);
   }
 
@@ -134,16 +134,16 @@
     }
 
     .o-text {
-      font-size: clamp(0px, px2vw(16), 16px);
+      font-size: clamp(1px, px2vw(16), 16px);
       line-height: 1.25;
-      letter-spacing: clamp(0px, px2vw(1.04), 1.04px);
+      letter-spacing: clamp(1px, px2vw(1.04), 1.04px);
       color: #8e8e93;
     }
   }
 
   .l-btn-skip {
     position: absolute;
-    bottom: clamp(0px, px2vw(23), 23px);
+    bottom: clamp(1px, px2vw(23), 23px);
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -159,7 +159,7 @@
     .o-image {
       @include image-inner(402, 76);
 
-      width: clamp(0px, px2vw(160), 160px);
+      width: clamp(1px, px2vw(160), 160px);
     }
   }
 }
@@ -179,13 +179,13 @@
     .o-image {
       @include image-inner(560, 469);
 
-      width: clamp(0px, px2vw(560), 560px);
+      width: clamp(1px, px2vw(560), 560px);
     }
   }
 
   .l-content {
     position: absolute;
-    bottom: clamp(0px, px2vw(123), 123px);
+    bottom: clamp(1px, px2vw(123), 123px);
     left: 50%;
     transform: translateX(-50%);
     z-index: 20;
@@ -193,15 +193,15 @@
 
   .c-content {
     .o-text {
-      font-size: clamp(0px, px2vw(20), 20px);
+      font-size: clamp(1px, px2vw(20), 20px);
       color: #8e8e93;
     }
   }
 
   .l-deco-01 {
     position: absolute;
-    top: clamp(0px, px2vw(78), 78px);
-    left: clamp(0px, px2vw(25), 25px);
+    top: clamp(1px, px2vw(78), 78px);
+    left: clamp(1px, px2vw(25), 25px);
     z-index: 10;
   }
 
@@ -209,14 +209,14 @@
     .o-image {
       @include image-inner(44, 49);
 
-      width: clamp(0px, px2vw(44), 44px);
+      width: clamp(1px, px2vw(44), 44px);
     }
   }
 
   .l-deco-02 {
     position: absolute;
-    top: clamp(0px, px2vw(125), 125px);
-    left: clamp(0px, px2vw(80), 80px);
+    top: clamp(1px, px2vw(125), 125px);
+    left: clamp(1px, px2vw(80), 80px);
     z-index: 10;
   }
 
@@ -224,14 +224,14 @@
     .o-image {
       @include image-inner(54, 50);
 
-      width: clamp(0px, px2vw(54), 54px);
+      width: clamp(1px, px2vw(54), 54px);
     }
   }
 
   .l-deco-03 {
     position: absolute;
     top: 0;
-    left: clamp(0px, px2vw(120), 120px);
+    left: clamp(1px, px2vw(120), 120px);
     z-index: 10;
   }
 
@@ -239,14 +239,14 @@
     .o-image {
       @include image-inner(22, 22);
 
-      width: clamp(0px, px2vw(22), 22px);
+      width: clamp(1px, px2vw(22), 22px);
     }
   }
 
   .l-deco-04 {
     position: absolute;
-    top: clamp(0px, px2vw(98), 98px);
-    left: clamp(0px, px2vw(192), 192px);
+    top: clamp(1px, px2vw(98), 98px);
+    left: clamp(1px, px2vw(192), 192px);
     z-index: 10;
   }
 
@@ -254,14 +254,14 @@
     .o-image {
       @include image-inner(22, 22);
 
-      width: clamp(0px, px2vw(22), 22px);
+      width: clamp(1px, px2vw(22), 22px);
     }
   }
 
   .l-deco-05 {
     position: absolute;
-    top: clamp(0px, px2vw(40), 40px);
-    left: clamp(0px, px2vw(140), 140px);
+    top: clamp(1px, px2vw(40), 40px);
+    left: clamp(1px, px2vw(140), 140px);
     z-index: 10;
   }
 
@@ -269,14 +269,14 @@
     .o-image {
       @include image-inner(1, 1);
 
-      width: clamp(0px, px2vw(39), 39px);
+      width: clamp(1px, px2vw(39), 39px);
     }
   }
 
   .l-deco-06 {
     position: absolute;
-    top: clamp(-15px, px2vw(-15), 0px);
-    left: clamp(0px, px2vw(190), 190px);
+    top: clamp(-15px, px2vw(-15), 1px);
+    left: clamp(1px, px2vw(190), 190px);
     z-index: 10;
   }
 
@@ -288,14 +288,14 @@
     .o-image {
       @include image-inner(1, 1);
 
-      width: clamp(0px, px2vw(39), 39px);
+      width: clamp(1px, px2vw(39), 39px);
     }
   }
 
   .l-deco-07 {
     position: absolute;
-    top: clamp(0px, px2vw(185), 185px);
-    left: clamp(0px, px2vw(140), 140px);
+    top: clamp(1px, px2vw(185), 185px);
+    left: clamp(1px, px2vw(140), 140px);
     z-index: 10;
   }
 
@@ -307,14 +307,14 @@
     .o-image {
       @include image-inner(1, 1);
 
-      width: clamp(0px, px2vw(39), 39px);
+      width: clamp(1px, px2vw(39), 39px);
     }
   }
 
   .l-deco-08 {
     position: absolute;
-    top: clamp(0px, px2vw(55), 55px);
-    left: clamp(0px, px2vw(345), 345px);
+    top: clamp(1px, px2vw(55), 55px);
+    left: clamp(1px, px2vw(345), 345px);
     z-index: 10;
   }
 
@@ -322,14 +322,14 @@
     .o-image {
       @include image-inner(1, 1);
 
-      width: clamp(0px, px2vw(39), 39px);
+      width: clamp(1px, px2vw(39), 39px);
     }
   }
 
   .l-deco-09 {
     position: absolute;
-    top: clamp(0px, px2vw(188), 188px);
-    left: clamp(0px, px2vw(390), 390px);
+    top: clamp(1px, px2vw(188), 188px);
+    left: clamp(1px, px2vw(390), 390px);
     z-index: 10;
   }
 
@@ -337,14 +337,14 @@
     .o-image {
       @include image-inner(1, 1);
 
-      width: clamp(0px, px2vw(25), 25px);
+      width: clamp(1px, px2vw(25), 25px);
     }
   }
 
   .l-deco-10 {
     position: absolute;
-    top: clamp(0px, px2vw(90), 90px);
-    left: clamp(0px, px2vw(495), 495px);
+    top: clamp(1px, px2vw(90), 90px);
+    left: clamp(1px, px2vw(495), 495px);
     z-index: 10;
   }
 
@@ -352,14 +352,14 @@
     .o-image {
       @include image-inner(1, 1);
 
-      width: clamp(0px, px2vw(25), 25px);
+      width: clamp(1px, px2vw(25), 25px);
     }
   }
 
   .l-deco-11 {
     position: absolute;
-    top: clamp(0px, px2vw(135), 135px);
-    left: clamp(0px, px2vw(435), 435px);
+    top: clamp(1px, px2vw(135), 135px);
+    left: clamp(1px, px2vw(435), 435px);
     z-index: 10;
   }
 
@@ -367,14 +367,14 @@
     .o-image {
       @include image-inner(53, 37);
 
-      width: clamp(0px, px2vw(53), 53px);
+      width: clamp(1px, px2vw(53), 53px);
     }
   }
 
   .l-deco-11 {
     position: absolute;
-    top: clamp(0px, px2vw(135), 135px);
-    left: clamp(0px, px2vw(435), 435px);
+    top: clamp(1px, px2vw(135), 135px);
+    left: clamp(1px, px2vw(435), 435px);
     z-index: 10;
   }
 
@@ -382,14 +382,14 @@
     .o-image {
       @include image-inner(53, 37);
 
-      width: clamp(0px, px2vw(53), 53px);
+      width: clamp(1px, px2vw(53), 53px);
     }
   }
 
   .l-deco-12 {
     position: absolute;
-    top: clamp(-20px, px2vw(-20), 0px);
-    left: clamp(0px, px2vw(395), 395px);
+    top: clamp(-20px, px2vw(-20), 1px);
+    left: clamp(1px, px2vw(395), 395px);
     z-index: 10;
   }
 
@@ -397,7 +397,7 @@
     .o-image {
       @include image-inner(80, 86);
 
-      width: clamp(0px, px2vw(80), 80px);
+      width: clamp(1px, px2vw(80), 80px);
     }
   }
 }
@@ -417,13 +417,13 @@
     .o-image {
       @include image-inner(772, 426);
 
-      width: clamp(0px, px2vw(386), 386px);
+      width: clamp(1px, px2vw(386), 386px);
     }
   }
 
   .l-content {
     position: absolute;
-    top: clamp(0px, px2vw(57), 57px);
+    top: clamp(1px, px2vw(57), 57px);
     left: 50%;
     z-index: 10;
     transform: translateX(-50%);
@@ -431,7 +431,7 @@
 
   .c-content {
     .o-text {
-      font-size: clamp(0px, px2vw(20), 20px);
+      font-size: clamp(1px, px2vw(20), 20px);
       color: #8e8e93;
     }
   }

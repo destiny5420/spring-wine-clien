@@ -29,14 +29,14 @@
     }
 
     .c-start__wrap {
-      padding: clamp(0px, px2vw(10), 10px);
+      padding: clamp(1px, px2vw(10), 10px);
     }
 
     .o-text {
-      font-size: clamp(0px, px2vw(22), 22px);
+      font-size: clamp(1px, px2vw(22), 22px);
       color: $c-grayscale-757;
-      line-height: clamp(0px, px2vw(22), 22px);
-      letter-spacing: clamp(0px, px2vw(1.04), 1.04px);
+      line-height: clamp(1px, px2vw(22), 22px);
+      letter-spacing: clamp(1px, px2vw(1.04), 1.04px);
     }
 
     &:hover {
@@ -62,7 +62,7 @@
     }
 
     .o-text {
-      font-size: clamp(0px, px2vw(22), 22px);
+      font-size: clamp(1px, px2vw(22), 22px);
       color: $c-grayscale-757;
     }
   }

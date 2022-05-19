@@ -46,7 +46,7 @@
   },
   "clamp desktop": {
     "prefix": "cld",
-    "body": ["clamp(0px, px2vw($1), $1px)"],
+    "body": ["clamp(1px, px2vw($1), $1px)"],
     "description": "clamp for desktop"
   }
 }

@@ -1,20 +1,88 @@
 import Configure from './assets/js/utils/Configure'
 
+const TITLE = 'Curiosity'
+const DESCRIPTION =
+  'Keychron 全系列產品全球熱賣中。無線雙模機械式鍵盤提供多款軸體選擇、兼顧便利性與更小的體積。無論是辦公效率、遊戲競技或是桌面美學，Keychron 都是您的完美選擇。'
+const KEY = 'Curiosity, web game'
+const WEBSITE_URL = 'https://spring-wine.stackergames.org/'
+const IMAGE_URL = 'https://spring-wine.stackergames.org/ogshare.jpg'
+
 export default {
   head: {
-    title: '',
+    title: TITLE,
     htmlAttrs: {
-      lang: 'zh-tw',
+      lang: 'zh_tw',
     },
     meta: [
       { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
-        name: 'viewport',
-        content:
-          'width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover',
+        hid: 'description',
+        name: 'description',
+        content: DESCRIPTION,
       },
       { name: 'format-detection', content: 'telephone=no' },
+      {
+        hid: 'keyword',
+        name: 'keyword',
+        content: KEY,
+      },
+      {
+        property: 'og:title',
+        content: TITLE,
+      },
+      {
+        property: 'og:description',
+        content: DESCRIPTION,
+      },
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        property: 'og:site_name',
+        content: TITLE,
+      },
+      {
+        property: 'og:image',
+        content: IMAGE_URL,
+      },
+      {
+        property: 'og:url',
+        content: WEBSITE_URL,
+      },
+      {
+        property: 'og:locale',
+        content: 'zh_tw',
+      },
+
+      // twitter
+      {
+        name: 'twitter:card',
+        content: 'summary',
+      },
+      {
+        name: 'twitter:url',
+        content: WEBSITE_URL,
+      },
+      {
+        name: 'twitter:title',
+        content: TITLE,
+      },
+      {
+        name: 'twitter:description',
+        content: DESCRIPTION,
+      },
+      {
+        name: 'twitter:image',
+        content: IMAGE_URL,
+      },
+      {
+        name: 'twitter:image:alt',
+        content: DESCRIPTION,
+      },
     ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
   },
 
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode

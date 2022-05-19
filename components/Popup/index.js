@@ -43,6 +43,52 @@ export default {
           onClickHandler: this.onSkipClick,
         },
       },
+      findPanel: {
+        open: false,
+        background: {
+          imgUrl: require(`~/assets/images/popup/pic-find-panel-01.png`),
+          imgUrl_m: require(`~/assets/images/popup/pic-find-panel-01.png`),
+          alt: `pic-find-panel-01`,
+        },
+        deco1: {
+          imgUrl: require(`~/assets/images/popup/pic-deco-01.png`),
+          imgUrl_m: require(`~/assets/images/popup/pic-deco-01.png`),
+          alt: `pic-deco-01`,
+        },
+        deco2: {
+          imgUrl: require(`~/assets/images/popup/pic-deco-02.png`),
+          imgUrl_m: require(`~/assets/images/popup/pic-deco-02.png`),
+          alt: `pic-deco-02`,
+        },
+        deco3: {
+          imgUrl: require(`~/assets/images/popup/pic-deco-03.png`),
+          imgUrl_m: require(`~/assets/images/popup/pic-deco-03.png`),
+          alt: `pic-deco-03`,
+        },
+        deco4: {
+          imgUrl: require(`~/assets/images/popup/pic-deco-04.png`),
+          imgUrl_m: require(`~/assets/images/popup/pic-deco-04.png`),
+          alt: `pic-deco-04`,
+        },
+        deco5: {
+          imgUrl: require(`~/assets/images/popup/pic-deco-05.png`),
+          imgUrl_m: require(`~/assets/images/popup/pic-deco-05.png`),
+          alt: `pic-deco-05`,
+        },
+        deco6: {
+          imgUrl: require(`~/assets/images/popup/pic-deco-06.png`),
+          imgUrl_m: require(`~/assets/images/popup/pic-deco-06.png`),
+          alt: `pic-deco-06`,
+        },
+        deco7: {
+          imgUrl: require(`~/assets/images/popup/pic-deco-07.png`),
+          imgUrl_m: require(`~/assets/images/popup/pic-deco-07.png`),
+          alt: `pic-deco-07`,
+        },
+        content: {
+          text: `請等待其他玩家完成 ...`,
+        },
+      },
       message: {
         open: false,
         title: {
@@ -63,6 +109,7 @@ export default {
       this.onClosePopup()
       this.onShowMessage(data)
     })
+    this.$nuxt.$on('Popup:ShowWaitPlayer', this.onShowWaitPlayer)
     this.$nuxt.$on('Popup:CloserPanel', this.onClosePopup)
   },
   mounted() {
@@ -79,6 +126,11 @@ export default {
       return {
         'pointer-events-auto': this.introduction.open,
         'opacity-1': this.introduction.open,
+      }
+    },
+    _classFind() {
+      return {
+        'opacity-1': this.findPanel.open,
       }
     },
     _classMessage() {
@@ -127,8 +179,13 @@ export default {
       this.message.open = true
       this.rootOpen = true
     },
+    onShowWaitPlayer() {
+      this.findPanel.open = true
+      this.rootOpen = true
+    },
     onClosePopup() {
       this.rootOpen = false
+      this.findPanel.open = false
       this.message.open = false
       this.introduction.open = false
     },

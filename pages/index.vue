@@ -136,10 +136,7 @@ export default {
         // console.log(`中獎人是自己！`)
 
         // 1. show message
-        this.$nuxt.$emit('Popup:ShowMessage', {
-          title: `You find it!`,
-          message: `請等待其他殼殼們！`,
-        })
+        this.$nuxt.$emit('Popup:ShowWaitPlayer')
 
         // 2. close topic ui
         this.$nuxt.$emit('Topic:onClose')

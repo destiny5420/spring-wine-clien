@@ -5,36 +5,85 @@
     </div>
     <div class="l-panel">
       <div class="c-panel">
-        <div class="c-panel__wrap">
-          <form class="c-form">
-            <div class="c-form__wrap">
-              <div class="l-input">
-                <div class="c-input c-name-input">
-                  <input
-                    type="text"
-                    placeholder="name"
-                    class="o-input f-os"
-                    v-model.trim="name"
-                  />
-                </div>
-              </div>
-              <div class="l-input">
-                <div class="c-input c-email-input">
-                  <input
-                    type="email"
-                    placeholder="email"
-                    class="o-input f-os"
-                    v-model.trim="email"
-                  />
-                </div>
-              </div>
-              <div class="l-login-btn">
-                <button class="c-login-btn pointer" @click="onLogin">
-                  <div class="c-login-btn__wrap duration-250 f-os">login</div>
-                </button>
+        <div class="c-panel__wrap relative">
+          <div class="l-eye">
+            <div class="c-eye">
+              <div class="o-image relative">
+                <picture class="image-obj">
+                  <source media="(max-width: 640px)" :srcset="eye.imgUrl_m" />
+                  <img :src="eye.imgUrl" :alt="eye.alt" class="w-full" />
+                </picture>
               </div>
             </div>
-          </form>
+          </div>
+          <div class="l-text-login">
+            <div class="c-text-login">
+              <div class="o-image relative">
+                <picture class="image-obj">
+                  <source
+                    media="(max-width: 640px)"
+                    :srcset="textLogin.imgUrl_m"
+                  />
+                  <img
+                    :src="textLogin.imgUrl"
+                    :alt="textLogin.alt"
+                    class="w-full"
+                  />
+                </picture>
+              </div>
+            </div>
+          </div>
+          <div class="l-form">
+            <form class="c-form">
+              <div class="c-form__wrap">
+                <div class="l-input">
+                  <div class="c-input c-name-input">
+                    <input
+                      type="text"
+                      placeholder="請輸入你的暱稱"
+                      class="o-input font-bold"
+                      v-model.trim="name"
+                    />
+                  </div>
+                </div>
+                <div class="l-input">
+                  <div class="c-input c-email-input">
+                    <input
+                      type="email"
+                      placeholder="請輸入你的信箱"
+                      class="o-input font-bold"
+                      v-model.trim="email"
+                    />
+                  </div>
+                </div>
+                <div class="l-login-btn">
+                  <button class="c-login-btn pointer" @click="onLogin">
+                    <div class="a-btn duration-250">
+                      <div class="c-login-btn__wrap duration-250 relative">
+                        <div class="l-text">
+                          <div class="c-text">
+                            <div class="o-image relative">
+                              <picture class="image-obj">
+                                <source
+                                  media="(max-width: 640px)"
+                                  :srcset="textLogin2.imgUrl_m"
+                                />
+                                <img
+                                  :src="textLogin2.imgUrl"
+                                  :alt="textLogin2.alt"
+                                  class="w-full"
+                                />
+                              </picture>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

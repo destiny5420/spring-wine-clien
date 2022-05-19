@@ -1,14 +1,19 @@
 export default {
   name: 'cTopic',
   created() {
-    this.$nuxt.$on('Topic:ChangeIndex', this.onChangeIndex)
+    this.$nuxt.$on('Topic:ChangeIndex', ({ index, topicNum }) => {
+      this.topicNum = topicNum
+      this.onChangeIndex(index)
+    })
     this.$nuxt.$on('Topic:onStart', this.onStart)
+    this.$nuxt.$on('Topic:onClose', this.onClose)
     this.$nuxt.$on('Topic:onClose', this.onClose)
   },
   data() {
     return {
       open: false,
       curIndex: 0,
+      topicNum: '',
       pictures: [
         {
           imgUrl: require(`~/assets/images/characters/character-00.png`),

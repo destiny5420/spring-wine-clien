@@ -39,10 +39,10 @@ export default {
     SC_MESSAGE(data) {
       switch (data.type) {
         case 'SC_DashboardNewTopic':
-          const { index } = data.data
+          const { index, topicNum } = data.data
 
           // 1. change topic index
-          this.$nuxt.$emit('Topic:ChangeIndex', index)
+          this.$nuxt.$emit('Topic:ChangeIndex', { index, topicNum })
 
           // 2. show countdown panel
           this.$nuxt.$emit('CountDown:onStart')

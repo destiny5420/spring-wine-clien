@@ -17,7 +17,10 @@
   .c-background__wrap {
     @include size(inherit);
 
-    background-color: rgba($color: $c-blue-00a, $alpha: 90%);
+    background-image: url('~/assets/images/common/pic-bg-01.png');
+    background-repeat: repeat;
+    background-size: 10%;
+    opacity: 1;
   }
 }
 
@@ -75,7 +78,7 @@
 
   .l-btn-prev {
     position: absolute;
-    bottom: clamp(1px, px2vw(88), 88px);
+    bottom: clamp(1px, px2vw(75), 75px);
     left: clamp(1px, px2vw(25), 25px);
     z-index: 10;
   }
@@ -98,7 +101,7 @@
   .l-btn-next {
     position: absolute;
     right: clamp(1px, px2vw(25), 25px);
-    bottom: clamp(1px, px2vw(88), 88px);
+    bottom: clamp(1px, px2vw(75), 75px);
     z-index: 10;
   }
 
@@ -120,7 +123,7 @@
 
   .l-content {
     position: absolute;
-    bottom: clamp(1px, px2vw(113), 113px);
+    bottom: clamp(1px, px2vw(100), 100px);
     left: 50%;
     z-index: 10;
     width: clamp(1px, px2vw(300), 300px);
@@ -143,7 +146,7 @@
 
   .l-btn-skip {
     position: absolute;
-    bottom: clamp(1px, px2vw(23), 23px);
+    bottom: clamp(1px, px2vw(28), 28px);
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -159,7 +162,7 @@
     .o-image {
       @include image-inner(402, 76);
 
-      width: clamp(1px, px2vw(160), 160px);
+      width: clamp(1px, px2vw(40), 40px);
     }
   }
 }

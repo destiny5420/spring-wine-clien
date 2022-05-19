@@ -53,6 +53,8 @@ export default {
         return
       }
 
+      this.$nuxt.$emit('AudioManager:Play', 'Click')
+
       this.$nuxt.$emit('API:LoginHandler', {
         name: this.name,
         email: this.email,

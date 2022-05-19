@@ -28,10 +28,11 @@ export default {
         content: {
           curIndex: 0,
           textList: [
-            '充滿好奇心的阿德瓦，與他心愛的飛機降落在神秘、有趣的貝殼島，協助他一起找出島上的寶藏吧！',
-            '每一回合，越快找出指定物品的玩家，獲得的分數越高',
-            '遊戲結束後將取總分前八名玩家，頒發獎金',
-            '祝你順利',
+            '充滿好奇心的阿德瓦，駕駛著飛機降落在神秘、有趣的貝殼島，協助他一起找出島上的寶藏吧！',
+            '遊戲總共 <span class="font-bold">10</span> 回合<br/>需大家幫阿德瓦找物品',
+            '每回合，<span class="font-bold">越快</span> 找出指定物品的玩家<br/>獲得的 <span class="font-bold">分數越高</span>',
+            '每回合當有十名玩家找到物品後<br/>該局 <span class="font-bold">遊戲結束</span>',
+            '十回合後<br/><span class="font-bold">分數最高前八名，頒發名次獎金</span>',
           ],
         },
         closeBtn: {

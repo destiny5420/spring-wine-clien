@@ -199,6 +199,7 @@ export default {
       const x = ev.x || ev.clientX
       const y = ev.y || ev.clientY
 
+      const dpr = this.dpr
       const numFreeWidth = this.numFreeWidth
       const numFreeHeight = this.numFreeHeight
       const strGameDir = this.winfowGameDir
@@ -207,6 +208,9 @@ export default {
       if (strGameDir === 'horizontal') {
         vec2MouseMove.set(vec2MouseMove.y, -vec2MouseMove.x)
       }
+
+      vec2MouseMove.x *= dpr
+      vec2MouseMove.y *= dpr
 
       const vec2Offset = this.vec2ScreenOffset.sub(vec2MouseMove)
 

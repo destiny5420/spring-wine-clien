@@ -71,6 +71,7 @@ export default {
     _classRoot() {
       return {
         'is-hidden': this.root.hidden,
+        'pointer-events-none': this.root.hidden,
       }
     },
     _classButtonStart() {

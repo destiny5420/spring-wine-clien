@@ -21,8 +21,12 @@
     <div class="l-message">
       <Message />
     </div>
-    <SocketConnect />
-    <AudioManager />
+    <div class="l-socket-connect user-none pointer-events-none">
+      <SocketConnect />
+    </div>
+    <div class="l-audio-manager user-none pointer-events-none">
+      <AudioManager />
+    </div>
     <div class="l-game user-none">
       <Game
         :img-origin="game.imgOrigin"
@@ -185,6 +189,20 @@ export default {
 
     position: fixed;
     z-index: $z-countdown;
+  }
+
+  .l-socket-connect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  .l-audio-manager {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
   }
 
   .l-leader-board {

@@ -20,12 +20,14 @@ export default {
   },
   mounted() {
     this.player.audioClick = new Audio(this.source.audioClick)
+
     this.player.audioBGM = new Audio(this.source.audioBGM)
     this.player.audioBGM.volume = 0.5
+    this.player.audioBGM.loop = true
   },
   methods: {
     onPlay(audioName) {
-      // console.log(`onPlay / audioName: `, audioName)
+      console.log(`onPlay / audioName: `, audioName)
       switch (audioName) {
         case 'Click':
           this.player.audioClick.play()

@@ -150,6 +150,7 @@ export default {
   },
   methods: {
     onIntroNextClick() {
+      this.$nuxt.$emit('AudioManager:Play', 'Click')
       if (
         this.introduction.content.curIndex + 1 <
         this.introduction.content.textList.length
@@ -160,6 +161,7 @@ export default {
       }
     },
     onIntroPrevClick() {
+      this.$nuxt.$emit('AudioManager:Play', 'Click')
       if (this.introduction.content.curIndex - 1 > 0) {
         this.introduction.content.curIndex -= 1
       } else {

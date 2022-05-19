@@ -206,6 +206,10 @@
     top: clamp(1px, px2vw(78), 78px);
     left: clamp(1px, px2vw(25), 25px);
     z-index: 10;
+
+    .a-block {
+      animation: deco-fall 1s 0s infinite forwards ease-in-out;
+    }
   }
 
   .c-deco-01 {
@@ -221,6 +225,10 @@
     top: clamp(1px, px2vw(125), 125px);
     left: clamp(1px, px2vw(80), 80px);
     z-index: 10;
+
+    .a-block {
+      animation: deco-fall 1.15s -1s infinite forwards ease-in-out;
+    }
   }
 
   .c-deco-02 {
@@ -236,6 +244,10 @@
     top: 0;
     left: clamp(1px, px2vw(120), 120px);
     z-index: 10;
+
+    .a-block {
+      animation: deco-fall 1.5s 0s infinite forwards ease-in-out;
+    }
   }
 
   .c-deco-03 {
@@ -251,6 +263,10 @@
     top: clamp(1px, px2vw(98), 98px);
     left: clamp(1px, px2vw(192), 192px);
     z-index: 10;
+
+    .a-block {
+      animation: deco-fall 1.75s -0.1s infinite forwards ease-in-out;
+    }
   }
 
   .c-deco-04 {
@@ -266,6 +282,10 @@
     top: clamp(1px, px2vw(40), 40px);
     left: clamp(1px, px2vw(140), 140px);
     z-index: 10;
+
+    .a-block {
+      animation: deco-rotate 1s 0s infinite forwards linear;
+    }
   }
 
   .c-deco-05 {
@@ -281,6 +301,10 @@
     top: clamp(-15px, px2vw(-15), 1px);
     left: clamp(1px, px2vw(190), 190px);
     z-index: 10;
+
+    .a-block {
+      animation: deco-rotate 1.75s -1s infinite forwards linear;
+    }
   }
 
   .c-deco-06 {
@@ -300,6 +324,10 @@
     top: clamp(1px, px2vw(185), 185px);
     left: clamp(1px, px2vw(140), 140px);
     z-index: 10;
+
+    .a-block {
+      animation: deco-rotate 1s -1.5s infinite forwards linear;
+    }
   }
 
   .c-deco-07 {
@@ -319,6 +347,10 @@
     top: clamp(1px, px2vw(55), 55px);
     left: clamp(1px, px2vw(345), 345px);
     z-index: 10;
+
+    .a-block {
+      animation: deco-rotate 1.5s -0.5s infinite forwards linear;
+    }
   }
 
   .c-deco-08 {
@@ -334,6 +366,10 @@
     top: clamp(1px, px2vw(188), 188px);
     left: clamp(1px, px2vw(390), 390px);
     z-index: 10;
+
+    .a-block {
+      animation: deco-fall 2s -0.6s infinite forwards linear;
+    }
   }
 
   .c-deco-09 {
@@ -349,6 +385,10 @@
     top: clamp(1px, px2vw(90), 90px);
     left: clamp(1px, px2vw(495), 495px);
     z-index: 10;
+
+    .a-block {
+      animation: deco-fall 1.75s -1s infinite forwards ease-in-out;
+    }
   }
 
   .c-deco-10 {
@@ -364,21 +404,10 @@
     top: clamp(1px, px2vw(135), 135px);
     left: clamp(1px, px2vw(435), 435px);
     z-index: 10;
-  }
 
-  .c-deco-11 {
-    .o-image {
-      @include image-inner(53, 37);
-
-      width: clamp(1px, px2vw(53), 53px);
+    .a-block {
+      animation: deco-fall 1.5s -0.2s infinite forwards ease-in-out;
     }
-  }
-
-  .l-deco-11 {
-    position: absolute;
-    top: clamp(1px, px2vw(135), 135px);
-    left: clamp(1px, px2vw(435), 435px);
-    z-index: 10;
   }
 
   .c-deco-11 {
@@ -394,6 +423,10 @@
     top: clamp(-20px, px2vw(-20), 1px);
     left: clamp(1px, px2vw(395), 395px);
     z-index: 10;
+
+    .a-block {
+      animation: deco-fall 1.5s 0s infinite forwards ease-in-out;
+    }
   }
 
   .c-deco-12 {

@@ -1,0 +1,33 @@
+@keyframes deco-fall {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(clamp(1px, px2vw(15), 15px));
+  }
+
+  100% {
+    transform: translateY(clamp(1px, px2vw(30), 30px));
+    opacity: 0;
+  }
+}
+
+@keyframes deco-rotate {
+  0% {
+    opacity: 0;
+    transform: rotateZ(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: rotateZ(180deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotateZ(360deg);
+  }
+}

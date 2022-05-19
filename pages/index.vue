@@ -1,5 +1,32 @@
 <template>
   <div class="c-container">
+    <div class="l-loading pointer-events-none">
+      <Loading />
+    </div>
+    <div class="l-count-down pointer-events-none">
+      <CountDown />
+    </div>
+    <div class="l-leader-board pointer-events-none user-none">
+      <LeaderBoard />
+    </div>
+    <div class="l-popup pointer-events-none user-none">
+      <Popup />
+    </div>
+    <div class="l-login pointer-events-none">
+      <Login />
+    </div>
+    <div class="l-topic">
+      <Topic />
+    </div>
+    <div class="l-message">
+      <Message />
+    </div>
+    <div class="l-socket-connect user-none pointer-events-none">
+      <SocketConnect />
+    </div>
+    <div class="l-audio-manager user-none pointer-events-none">
+      <AudioManager />
+    </div>
     <div class="l-game user-none">
       <Game
         :img-origin="game.imgOrigin"

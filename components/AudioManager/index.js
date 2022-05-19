@@ -20,9 +20,10 @@ export default {
   },
   mounted() {
     this.player.audioClick = new Audio(this.source.audioClick)
+    this.player.audioClick.volume = 0.5
 
     this.player.audioBGM = new Audio(this.source.audioBGM)
-    this.player.audioBGM.volume = 0.5
+    this.player.audioBGM.volume = 0.1
     this.player.audioBGM.loop = true
   },
   methods: {

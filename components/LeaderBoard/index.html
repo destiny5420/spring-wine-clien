@@ -6,20 +6,60 @@
     <div class="l-list">
       <div class="c-list">
         <div class="c-list__wrap relative">
-          <div class="l-title">
-            <div class="c-title">
-              <h2 class="o-text f-os">LeaderBoard</h2>
+          <div class="l-deco-top w-full">
+            <div class="c-deco-top">
+              <div class="o-image relative">
+                <picture class="image-obj">
+                  <source
+                    media="(max-width: 640px)"
+                    :srcset="decoTop.imgUrl_m"
+                  />
+                  <img
+                    :src="decoTop.imgUrl"
+                    :alt="decoTop.alt"
+                    class="w-full"
+                  />
+                </picture>
+              </div>
             </div>
           </div>
           <div class="c-player-container">
             <div class="c-player-container__wrap">
-              <div class="c-player" v-for="item in list" :key="item.email">
-                <div class="c-player__wrap">
+              <div
+                class="c-player"
+                :class="_classPlayer(index+1)"
+                v-for="(item, index) in list"
+                :key="item.email"
+              >
+                <div class="c-player__wrap relative">
+                  <div class="l-award" v-if="showAward(index+1)">
+                    <div class="c-award">
+                      <div class="o-image relative">
+                        <img
+                          :src="getAward(index+1)"
+                          :alt="`award-0${index+1}`"
+                          class="image-obj"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="c-num">
+                    <div
+                      class="o-text f-noto font-bold text-center"
+                      :class="_classNumText(index+1)"
+                    >
+                      {{ index + 1}}
+                    </div>
+                  </div>
                   <div class="c-name">
-                    <p class="o-text">{{ item.name }}</p>
+                    <p class="o-text f-noto font-medium text-center">
+                      {{ item.name }}
+                    </p>
                   </div>
                   <div class="c-score">
-                    <div class="o-text">{{ item.score }}</div>
+                    <div class="o-text f-noto font-bold text-right">
+                      {{ getScore(item.score) }}
+                    </div>
                   </div>
                 </div>
               </div>

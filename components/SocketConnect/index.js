@@ -78,8 +78,7 @@ export default {
 
           // 2. show message
           this.$nuxt.$emit('Popup:ShowMessage', {
-            title: `Round Over`,
-            message: `等待主持人出下一題`,
+            message: `該局結束，請等待主持人 ...`,
           })
 
           // 3. close topic ui
@@ -127,14 +126,12 @@ export default {
         switch (data.gameStatus) {
           case 'Idle':
             self.$nuxt.$emit('Popup:ShowMessage', {
-              title: `遊戲即將開始`,
-              message: `請等待主持人出題`,
+              message: `請等待主持人出題 ...`,
             })
             break
           case 'Playing':
             self.$nuxt.$emit('Popup:ShowMessage', {
-              title: `遊戲進行中`,
-              message: `請等待下一局開始`,
+              message: `遊戲進行中，請等待下一局`,
             })
             break
           default:

@@ -6,7 +6,7 @@
     <div class="l-count-down pointer-events-none">
       <CountDown />
     </div>
-    <div class="l-leader-board pointer-events-none">
+    <div class="l-leader-board pointer-events-none user-none">
       <LeaderBoard />
     </div>
     <div class="l-popup pointer-events-none user-none">

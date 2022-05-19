@@ -96,9 +96,6 @@ export default {
           imgUrl_m: require(`~/assets/images/popup/pic-message-panel-01.png`),
           alt: `pic-message-panel-01`,
         },
-        title: {
-          text: ``,
-        },
         content: {
           text: ``,
         },
@@ -178,8 +175,7 @@ export default {
       this.introduction.open = true
       this.rootOpen = true
     },
-    onShowMessage({ title, message }) {
-      this.message.title.text = title
+    onShowMessage({ message }) {
       this.message.content.text = message
       this.message.open = true
       this.rootOpen = true

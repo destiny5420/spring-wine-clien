@@ -170,6 +170,7 @@ export default {
     onSkipClick() {
       this.onClosePopup()
       this.$nuxt.$emit('API:GetGameStatus')
+      this.$nuxt.$emit('AudioManager:Play', 'Click')
     },
     onShowIntroduction() {
       this.introduction.open = true

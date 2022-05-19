@@ -21,9 +21,8 @@
     <div class="l-message">
       <Message />
     </div>
-    <div class="l-socket-connect">
-      <SocketConnect />
-    </div>
+    <SocketConnect />
+    <AudioManager />
     <div class="l-game user-none">
       <Game
         :img-origin="game.imgOrigin"
@@ -50,6 +49,7 @@ import Login from '~/components/Login/index.vue'
 import Topic from '~/components/Topic/index.vue'
 import Message from '~/components/Message/index.vue'
 import SocketConnect from '~/components/SocketConnect/index.vue'
+import AudioManager from '~/components/AudioManager/index.vue'
 import ten2hex from '~/assets/utils/ten2hex.js'
 import Configure from '~/assets/js/utils/Configure'
 
@@ -64,6 +64,7 @@ export default {
     Topic,
     Message,
     SocketConnect,
+    AudioManager,
   },
   data() {
     return {
@@ -235,9 +236,6 @@ export default {
     top: 0;
     left: 0;
     z-index: $z-game;
-  }
-  .l-socket-connect {
-    position: fixed;
   }
 
   .testColor {

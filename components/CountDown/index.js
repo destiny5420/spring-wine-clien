@@ -88,6 +88,9 @@ export default {
 
             // 3. close panel
             self.onClose()
+
+            // 4. play bgm
+            self.$nuxt.$emit('AudioManager:Play', 'BGM')
           },
         }
       )

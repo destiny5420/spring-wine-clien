@@ -2,7 +2,7 @@ import Configure from './assets/js/utils/Configure'
 
 const TITLE = 'Curiosity'
 const DESCRIPTION =
-  'Keychron 全系列產品全球熱賣中。無線雙模機械式鍵盤提供多款軸體選擇、兼顧便利性與更小的體積。無論是辦公效率、遊戲競技或是桌面美學，Keychron 都是您的完美選擇。'
+  '經歷過隕石亂流的飛行家，阿德瓦。某一天，他持續著日常的飛行練習，突然！他發現了一座，看起來很好玩、很有趣的島嶼，似乎藏著很多神秘的寶物，於是他決定下降停留於這座島嶼上，一⋯⋯探⋯⋯究⋯⋯竟⋯⋯'
 const KEY = 'Curiosity, web game'
 const WEBSITE_URL = 'https://spring-wine.stackergames.org/'
 const IMAGE_URL = 'https://spring-wine.stackergames.org/ogshare.jpg'
